@@ -1,0 +1,179 @@
+<script
+	src="/orbps/orbps/contractEntry/listImport/js/archivesListImport.js"
+	type="text/javascript"></script>
+<script src="/orbps/orbps/public/js/publicValidate.js"
+	type="text/javascript"></script>
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="profile-content">
+		<div class="portlet light">
+			<div class="portlet-body" id="step-container">
+				<div class="row">
+					<form class="form-horizontal" name="ipsnInfoFormQuery"
+						id="ipsnInfoFormQuery" method="post">
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 投保信息查询
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="form-group">
+									<label class="control-label col-md-2"> 投保单号
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control" type="text"
+												name="applNo" id="applNo" />
+										</div>
+									</div>
+									<div class="col-md-2">
+										<button type="button" class="btn gray" id="btnQuery">
+											<i class="glyphicon glyphicon-search"></i>&nbsp;查&nbsp;询
+										</button>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 投保名称
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control" type="text"
+												name="applName" id="applName" readOnly="true"/>
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 投保人数
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control" type="text"
+												name="applNum" id="applNum" readOnly="true"/>
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 生效日期
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control" type="text"
+												name="applDate" id="applDate" readOnly="true"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form name="uploadListForm" enctype="multipart/form-data"
+						id="uploadListForm" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-md-2" for="file"> 清单文件 </label>
+							<div class="col-md-8">
+								<input id="fileupload" type="file" name="multipartFile"
+									data-url="" multiple>
+							</div>
+						</div>
+						<div class="form-group" align="center">
+							<button type="button" class="btn green" id="btnGrpDownload">
+								&nbsp;团单有分组模板下载</button>
+							<button type="button" class="btn green" id="btnSgDownload">
+								&nbsp;清汇有分组模板下载</button>
+						</div>
+						<div class="form-group">
+							<div class="col-md-10">&nbsp;</div>
+							<div class="col-md-2" style="font-size: 20px">
+								<input type="checkbox" name="continueImport" id="continueImport" />继续导入
+							</div>
+						</div>
+					</form>
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-2" align="right">
+								<label class="control-label">本次导入进度</label>
+							</div>
+							<div class="progress col-md-9">
+								<div id="progressBar" class="progress-bar" role="progressbar" aria-valuenow="60"
+									aria-valuemin="0" aria-valuemax="100">
+									<span id="spanPct">0%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 form-group">
+						<label class="control-label col-md-2">
+							被保人总数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="listSumNum" id="listSumNum" readonly="true"/>
+							</div>
+						</div>
+						<label class="control-label col-md-2">
+							导入成功总条数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="listImpNum" id="listImpNum" readonly="true"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 form-group">
+						<label class="control-label col-md-2">
+							本次导入总条数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="thisListSumNum" id="thisListSumNum" readonly="true"/>
+							</div>
+						</div>
+						<label class="control-label col-md-2">
+							本次导入正确条数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="thisListImpNum" id="thisListImpNum" readonly="true"/>
+							</div>
+						</div>
+						<label class="control-label col-md-2">
+							本次导入错误条数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="thisListErrNum" id="thisListErrNum" readonly="true"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12" align="center">
+						<button type="button" class="btn gray" id="btnImport">
+							<i class="glyphicon glyphicon-edit"></i>&nbsp;清单导入
+						</button>
+						<button type="button" class="btn gray" id="btnExportError">
+							<i class="glyphicon glyphicon-remove"></i>&nbsp;导出差错
+						</button>
+						<button type="button" class="btn gray" id="btnStopImport">
+							<i class="glyphicon glyphicon-stop"></i>&nbsp;停止导入
+						</button>
+						<button type="button" class="btn gray" id="btnExport">
+							<i class="glyphicon glyphicon-import"></i>&nbsp;导出档案清单
+						</button>
+						<button type="button" class="btn gray" id="btnAllCommit">
+							<i class="glyphicon glyphicon-ok"></i>&nbsp;全部录入完成
+						</button>
+						<!-- 	<div calss="col-md-6">
+							<label class="control-label col-md-2" id="amountLabel"> 是否继续导入 <span
+										style="color: red">*</span>
+							</label>
+							<div class="col-md-3">
+								<select id="continueImport" name="continueImport"
+									placeholder="是否继续导入.."
+									class="lion-combo form-control select2 input-small"
+									data-valueField='key' data-textField='description'
+									data-URL="web/dict/YES_NO_FLAG"
+									data-minimum-results-for-search="1"></select>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

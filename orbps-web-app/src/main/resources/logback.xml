@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <!--上下文定义为主机名-->
+    <contextName>${HOSTNAME}</contextName>
+
+    <!--////////////////////////Property部分////////////////////////-->
+
+    <!--日志文件存储的文件夹根路径-->
+    <property name="LOG_HOME" value="logs/orbps/webapp"/>
+    <!--当使用异步日志时，日志队列中存储的最大日志对象个数-->
+    <property name="maxQueueSize" value="512"/>
+    <!--数据日志的字符集-->
+    <property name="charset" value="UTF-8"/>
+    <!--当使用异步日志时，日志队列到达20%容量时，是否要丢弃TRACE、DEBUG和INFO级别的event。0为不丢弃-->
+    <property name="discardingThreshold" value="0"/>
+    <!--日志的打印形式-->
+    <property name="contentPattern"
+              value="[[[%d{yyyy-MM-dd HH:mm:ss.SSS} | %contextName | orbps-webapp | %tcode | %level | %path | %logger{100} | %act | %msg %ex{full}]]]%n"/>
+    <!--全量日志文件的时间滚动生成策略-->
+    <property name="fullFileNamePattern" value="full-%d{yyyy-MM-dd}.log"/>
+    <!--核心组件core日志文件的时间滚动生成策略-->
+    <property name="coreFileNamePattern" value="core-%d{yyyy-MM-dd}.log"/>
+    <!--接口日志文件的时间滚动生成策略-->
+    <property name="interfaceFileNamePattern" value="interface-%d{yyyy-MM-dd}.log"/>
+    <!--web日志文件的时间滚动生成策略-->
+    <property name="webFileNamePattern" value="web-%d{yyyy-MM-dd}.log"/>
+
+    <!--////////////////////////Converter部分////////////////////////-->
+
+    <!--输出代码执行路径的占位符规则-->
+    <conversionRule conversionWord="path" converterClass="com.halo.core.log.converter.PathConverter"/>
+    <!--输出日志动作的占位符规则-->
+    <conversionRule conversionWord="act" converterClass="com.halo.core.log.converter.ActConverter"/>
+    <!--输出当前线程交易码的占位符规则-->
+    <conversionRule conversionWord="tcode" converterClass="com.halo.core.log.converter.TcodeConverter"/>
+
+    <!--////////////////////////Appender部分////////////////////////-->
+
+    <!-- 记录接口日志同步策略的Appender -->
+    <appender name="INTERFACE_FILE_OUT_SYNC" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/interface/interface.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/interface/${interfaceFileNamePattern}</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+        	<charset>${charset}</charset>
+            <pattern>${contentPattern}</pattern>
+        </encoder>
+    </appender>
+    <!-- 记录接口日志异步策略的Appender -->
+    <appender name="INTERFACE_FILE_OUT_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>${discardingThreshold}</discardingThreshold>
+        <queueSize>${maxQueueSize}</queueSize>
+        <appender-ref ref="INTERFACE_FILE_OUT_SYNC"/>
+    </appender>
+
+    <!-- 记录全量日志同步策略的Appender -->
+    <appender name="FULL_FILE_OUT_SYNC" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/full/full.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/full/${fullFileNamePattern}</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+        	<charset>${charset}</charset>
+            <pattern>${contentPattern}</pattern>
+        </encoder>
+    </appender>
+    <!-- 记录全量日志异步策略的Appender -->
+    <appender name="FULL_FILE_OUT_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>${discardingThreshold}</discardingThreshold>
+        <queueSize>${maxQueueSize}</queueSize>
+        <appender-ref ref="FULL_FILE_OUT_SYNC"/>
+    </appender>
+
+    <!-- Kafka记录全量日志同步策略的Appender -->
+    <appender name="FULL_KAFKA_OUT_SYNC" class="com.halo.core.log.appender.KafkaAppender">
+        <topic>ORBPS_WEBAPP_LOG</topic>
+        <brokerList>10.31.23.68:9092,10.31.23.69:9092,10.31.23.70:9092</brokerList>
+        <pattern>${contentPattern}</pattern>
+        <properties>
+            acks=all,retries=0,batch.size=16384,linger.ms=1,buffer.memory=33554432,key.serializer=org.apache.kafka.common.serialization.StringSerializer,value.serializer=org.apache.kafka.common.serialization.StringSerializer,max.block.ms=10000
+        </properties>
+    </appender>
+    <!-- Kafka记录全量日志异步策略的Appender -->
+    <appender name="FULL_KAFKA_OUT_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>${discardingThreshold}</discardingThreshold>
+        <queueSize>${maxQueueSize}</queueSize>
+        <appender-ref ref="FULL_KAFKA_OUT_SYNC"/>
+    </appender>
+
+    <!-- 记录核心组件日志同步策略的Appender -->
+    <appender name="CORE_FILE_OUT_SYNC" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/core/core.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/core/${coreFileNamePattern}</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+        	<charset>${charset}</charset>
+            <pattern>${contentPattern}</pattern>
+        </encoder>
+    </appender>
+    <!-- 记录核心组件日志异步策略的Appender -->
+    <appender name="CORE_FILE_OUT_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>${discardingThreshold}</discardingThreshold>
+        <queueSize>${maxQueueSize}</queueSize>
+        <appender-ref ref="CORE_FILE_OUT_SYNC"/>
+    </appender>
+
+    <!-- 控制台日志输出。一定是同步的 -->
+    <appender name="STD_OUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+        	<charset>${charset}</charset>
+            <pattern>${contentPattern}</pattern>
+        </encoder>
+    </appender>
+
+
+    <!-- 记录Web层日志同步策略的Appender -->
+    <appender name="WEB_FILE_OUT_SYNC" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/web/web.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/web/${webFileNamePattern}</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+        	<charset>${charset}</charset>
+            <pattern>${contentPattern}</pattern>
+        </encoder>
+    </appender>
+    <!-- 记录Web层日志异步策略的Appender -->
+    <appender name="WEB_FILE_OUT_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>${discardingThreshold}</discardingThreshold>
+        <queueSize>${maxQueueSize}</queueSize>
+        <appender-ref ref="WEB_FILE_OUT_SYNC"/>
+    </appender>
+
+    <!--////////////////////////接口日志////////////////////////-->
+    <logger name="HALO_ENV" level="INFO">
+        <appender-ref ref="INTERFACE_FILE_OUT_ASYNC"/>
+    </logger>
+    <logger name="org.apache.cxf" level="ERROR">
+        <appender-ref ref="INTERFACE_FILE_OUT_ASYNC"/>
+    </logger>
+    <logger name="org.apache.kafka" level="ERROR"/>
+
+    <!--////////////////////////框架日志////////////////////////-->
+    <logger name="com.halo.core" level="ERROR">
+        <appender-ref ref="CORE_FILE_OUT_ASYNC"/>
+    </logger>
+
+    <!--////////////////////////WEB日志////////////////////////-->
+    <logger name="HALO_WEB" level="ERROR">
+        <appender-ref ref="WEB_FILE_OUT_ASYNC"/>
+    </logger>
+    <logger name="com.newcore.orbps.web" level="INFO">
+        <appender-ref ref="WEB_FILE_OUT_ASYNC"/>
+    </logger>
+
+    <!--////////////////////////全量日志////////////////////////-->
+    <root level="INFO">
+        <!--<appender-ref ref="STD_OUT"/>-->
+        <appender-ref ref="FULL_FILE_OUT_ASYNC"/>
+        <!--<appender-ref ref="FULL_KAFKA_OUT_ASYNC"/>-->
+    </root>
+</configuration>

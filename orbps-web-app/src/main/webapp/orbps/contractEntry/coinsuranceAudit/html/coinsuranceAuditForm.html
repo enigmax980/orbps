@@ -1,0 +1,313 @@
+﻿<script
+	src="/orbps/orbps/contractEntry/coinsuranceAudit/js/coinsuranceAuditForm.js"
+	type="text/javascript"></script>
+<script src="/orbps/orbps/public/js/publicValidate.js"
+	type="text/javascript"></script>
+
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="profile-content">
+		<div class="portlet light">
+			<form class="form-horizontal" name="agreementInf"
+	            id="agreementInf" method="post">
+	            <div class="alert alert-danger display-hide">
+	                <button class="close" data-close="alert"></button>
+	            </div>
+	            <div class="alert alert-success display-hide">
+	                <button class="close" data-close="alert"></button>
+	            </div>
+		    <div class="form-group">
+            <label class="control-label col-md-2">协议号<span
+              style="color: red">*</span></label>
+            <div class="col-md-2">
+                <div class="input-icon right">
+                    <i class="fa"></i> <input class="form-control input-small"
+                        type="text" name="agreementNo" id="agreementNo" />
+                </div>
+            </div>
+            </div>
+			<div class="portlet-body" id="step-container">
+				<div class="row">
+						<!--基本信息-->
+							<div class="portlet box default">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="fa fa-gift"></i>基本信息
+									</div>
+									<div class="tools"></div>
+								</div>
+								<div class="portlet-body">
+									<div class="form-group">
+										<label class="control-label col-md-2">协议名称<span
+                                                style="color: red">*</span></label>
+										<div class="col-md-2">
+											<div class="input-icon right">
+												<i class="fa"></i> <input class="form-control input-small"
+													type="text" name="agreementName" id="agreementName" />
+											</div>
+										</div>
+										</div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">协议签署日期<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div id="1" class="input-group input-small date date-picker"
+                                                data-date-format="yyyy-mm-dd">
+                                                <input type="text" id='applDate' name="applDate"
+                                                    placeholder=" " class="form-control" maxlength="25"
+                                                    size="20" /> <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2">协议有效期<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div id="1" class="input-group input-small date date-picker"
+                                                data-date-format="yyyy-mm-dd">
+                                                <input type="text" id='inforceDate' name="inforceDate"
+                                                    placeholder=" " class="form-control" maxlength="25"
+                                                    size="20" /> <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2">至<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div id="1" class="input-group input-small date date-picker"
+                                                data-date-format="yyyy-mm-dd">
+                                                <input type="text" id='termDate' name="termDate"
+                                                    placeholder=" " class="form-control" maxlength="25"
+                                                    size="20" /> <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                       <div class="form-group">
+                                        <label class="control-label col-md-2">管理机构<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="mgrBranchNo" id="mgrBranchNo" />
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2">客户名称<span
+                                                style="color: red">*</span></label>
+                                          <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="customerName" id="customerName" />
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2">证件类型<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <select id="idType" name="idType" placeholder="请选择证件类型..."
+                                                class="lion-combo form-control select2 input-small"
+                                                data-valueField='key' data-textField='description'
+                                                data-URL="/orbps/web/dict/GRP_ID_TYPE"
+                                                data-isconnect="true"
+                                                data-minimum-results-for-search="1"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">证件号码<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="idNo" id="idNo" />
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2"> 行业性质 </label>
+                                            <div class="col-md-2">
+                                                <select id="enterpriseNature" name="enterpriseNature"
+                                                    placeholder="请选择行业性质..."
+                                                    class="lion-combo form-control select2 input-small"
+                                                    data-valueField='key' data-textField='description'
+                                                    data-URL="/orbps/web/dict/ENTERPRISE_NATURE"
+                                                    data-isconnect="true"
+                                                    data-minimum-results-for-search="1"></select>
+                                            </div>
+                                    <label class="control-label col-md-2">职业类别<span
+                                                style="color: red">*</span></label>
+                                     <div class="col-md-2">
+                                            <select id="occClassCode" name="occClassCode" placeholder="请选择行业类别..."
+                                                class="lion-combo form-control select2 input-small"
+                                                data-valueField='key' data-textField='description'
+                                                data-URL="web/dict/OCC_CLASS_CODE"
+                                                data-isconnect="true"
+                                                data-minimum-results-for-search="1"></select>
+                                        </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">联系人<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="contactPsn" id="contactPsn" />
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2">电话号码<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="contactTel" id="contactTel" />
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2">邮编<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="zipCode" id="zipCode" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">电子邮箱</label>
+                                        <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="email" id="email" />
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2">联系地址<span
+                                                style="color: red">*</span></label>
+                                        <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="address" id="address" />
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-md-2">传真</label>
+                                        <div class="col-md-2">
+                                            <div class="input-icon right">
+                                                <i class="fa"></i> <input class="form-control input-small"
+                                                    type="text" name="fax" id="fax" />
+                                            </div>
+                                        </div>
+                                    </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <table class="lion-datagrids table table-striped table-bordered table-hover"
+                                id="insurancecompanylist" data-singleselect="true"
+                                data-loadUrl="/orbps/web/orbps/contractEntry/coinAudit/queryComCompany" data-checkbox="true"
+                                data-pageSize="3" data-loading="false" data-issort="false">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-checkbox" data-field="applId" data-checkbox="true"><input
+                                                type="checkbox" class="group-checkable" /></th>
+                                                <th data-field='companyName'>共保公司名称</th>
+                                                <th data-field='companyFlag'>是否本公司</th>
+                                                <th data-field='connIdType'>共保公司身份标识</th>
+                                                <th data-field='amntPct'>共保保费份额比例</th>
+                                                <th data-field='responsibilityPct'>共保责任份额比例</th>
+                                                <th data-field='bankCode'>开户行</th>
+                                                <th data-field='accCustName'>开户名</th>
+                                                <th data-field='bankAccNo'>账号</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="9" align="center">无记录</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+				     </form>
+				<!-- 适用险种 -->
+				<form class="form-horizontal" name="insuranceInf" id="insuranceInf"
+					method="post">
+					<div class="alert alert-danger display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="alert alert-success display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="portlet box default">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i> 适用险种
+							</div>
+							<div class="tools"></div>
+						</div>
+						<div class="portlet-body">
+                          <div class="form-group">
+                              <div class="col-md-12">
+                                  <table class="lion-datagrids table table-striped table-bordered table-hover"
+                              id="busiprdlist" data-singleselect="true"
+                              data-loadUrl="/orbps/web/orbps/contractEntry/coinAudit/queryComPol" data-checkbox="true"
+                              data-pageSize="3" data-loading="false" data-issort="false">
+                                      <thead>
+                                          <tr>
+                                              <th class="table-checkbox" data-field="applId" data-checkbox="true"><input
+                                              type="checkbox" class="group-checkable" /></th>
+                                              <th data-field='busiPrdCode'>险种代码</th>
+                                              <th data-field='busiPrdCodeName'>险种名称</th>
+                                              <th data-field='amount'>保额</th>
+                                              <th data-field='premium'>保费</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td colspan="6" align="center">无记录</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          	<div class="form-group">
+	                                <div class=" col-md-12">
+	                                    <label class="control-label" for="convention"> <strong>特别约定:</strong>
+	                                    </label>
+	                                    <textarea class="form-control" id="appAddrCountry" name="appAddrCountry" rows="4"></textarea>
+	                                	</div>
+			                        </div>
+                                    <div class="form-group">
+                                      <label class="control-label col-md-2">是否审核通过<span
+                                                style="color: red">*</span></label>
+                                      <div class="col-md-2">
+                                          <select id="auditFindings" name="auditFindings"
+                                              placeholder="请选择是否审核通过..."
+                                              class="lion-combo form-control select2 input-small"
+                                              data-valueField='key' data-textField='description'
+                                              data-URL="web/dict/YES_NO_FLAG"
+                                              data-isconnect="true"
+                                              data-minimum-results-for-search="1"></select>
+                                      </div> 
+                                      <label class="control-label col-md-2">备注</label>
+                                      <div class="col-md-2">
+                                          <div class="input-icon right">
+                                           <i class="fa"></i> <input class="form-control input-small"
+                                           type="text" name="remark" id="remark" onkeyup="checklength(this,2000)"/>
+                                      </div>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<form id="submit">
+					<div class="col-md-12  form-group" align="center">
+						<button type="button" class="btn blue" id="btnQuery">&nbsp;查&nbsp;询</button>
+						<button type="button" class="btn blue" id="btnSubmit">&nbsp;提&nbsp;交</button>
+						<button type="button" class="btn blue" id="btnClear">&nbsp;清&nbsp;空</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,877 @@
+<div class="modal-dialog" style="width: 100%;height:90%">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title" id="insuredGroupInfo">
+				<span>清汇信息录入</span>
+			</h4>
+		</div>
+		<div class="row">
+			<div class="modal-body">
+				<form class="form-horizontal" name="sgGrpApplInfoForm" id="sgGrpApplInfoForm"
+					method="post">
+					<div class="alert alert-danger display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="alert alert-success display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="portlet box default">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i> 投保信息
+							</div>
+							<div class="tools"></div>
+						</div>
+						<div class="portlet-body">
+							<div class="form-group">
+								<label class="control-label col-md-2"> 投保单号 <span
+									style="color: red">*</span>
+								</label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control"
+											type="text" name="applNo" id="applNo" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 报价审批号 <span
+									style="color: red">*</span>
+								</label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="quotaEaNo" id="quotaEaNo" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 投保日期 <span
+									style="color: red">*</span>
+								</label>
+								<div class="col-md-2">
+									<div id="1" class="input-group input-small date date-picker"
+										data-date-format="yyyy-mm-dd">
+										<input type="text" id='applDate' name="applDate"
+											class="form-control" maxlength="25" size="20" /> <span
+											class="input-group-btn">
+											<button class="btn default" type="button">
+												<i class="fa fa-calendar"></i>
+											</button>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 共保协议号 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="agreementNo" id="agreementNo" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 上期合同号 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="previousPolNo" id="previousPolNo" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 销售渠道 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="salesChannel" id="salesChannel" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 销售机构 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="salesBranchNo" id="salesBranchNo" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 销售员代码 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<div class="form-horizontal">
+											<input class="form-control input-small" type="text"
+												name="salesCode" id="salesCode" />
+										</div>
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 销售员姓名 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="salesName" id="salesName" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- 增值税信息 -->
+				<form class="form-horizontal" name="vAddTaxInfoForm"
+					id="vAddTaxInfoForm" method="post">
+					<div class="alert alert-danger display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="alert alert-success display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="portlet box default">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i> 增值税信息
+							</div>
+							<div class="tools"></div>
+						</div>
+						<div class="portlet-body">
+							<div class="form-group">
+								<label class="control-label col-md-2"> 纳税人名称 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<div class="form-horizontal">
+											<input class="form-control input-small" type="text"
+												name="taxpayerName" id="taxpayerName" />
+										</div>
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 纳税人识别号 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<div class="form-horizontal">
+											<input class="form-control input-small" type="text"
+												name="taxIdNo" id="taxIdNo" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 开户银行代码 </label>
+								<div class="col-md-2">
+									<select id="bankCode" name="bankCode" placeholder="请选择开户行..."
+										class="lion-combo form-control select2 input-small"
+										data-valueField='key' data-textField='description'
+										data-URL="/orbps/web/dict/PRD_TYPE_CODE"
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 开户银行名称 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="bankBranchName" id="bankBranchName" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 银行账号 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<div class="form-horizontal">
+											<input class="form-control input-small" type="text"
+												name="bankaccNo" id="bankaccNo" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="portlet box default">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-gift"></i>汇交人信息
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="collapse" data-original-title=""
+								title=""> </a> <a href="#portlet-config" data-toggle="modal"
+								class="config" data-original-title="" title=""> </a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="tabbable-line">
+							<ul class="nav nav-tabs ">
+								<li class="active"><a href="#tab_15_1" data-toggle="tab">
+										团体汇交 </a></li>
+								<li><a href="#tab_15_2" data-toggle="tab">个人汇交</a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab_15_1">
+									<form class="form-horizontal" name="grpInsurInfoForm"
+										id="grpInsurInfoForm" method="post">
+										<div class="form-group">
+											<label class="control-label col-md-2"> 单位/团体名称 </label>
+											<div class="col-md-2">
+												<div class="input-icon right">
+													<i class="fa"></i>
+													<div class="form-horizontal">
+														<input class="form-control input-small" type="text"
+															name="companyName" id="companyName" />
+													</div>
+												</div>
+											</div>
+											<label class="control-label col-md-2"> 证件类型 </label>
+											<div class="col-md-2">
+												<select id="idType" name="idType"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/CLA0033"
+													data-minimum-results-for-search="1"></select>
+											</div>
+											<label class="control-label col-md-2"> 证件号码 </label>
+											<div class="col-md-2">
+												<div class="input-icon right">
+													<i class="fa"></i>
+													<div class="form-horizontal">
+														<input class="form-control input-small" type="text"
+															name="idNo" id="idNo" maxlength="25"/>
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 企业注册地 </label>
+											<div class="col-md-2">
+												<select id="companyRegist" name="companyRegist"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/CLA0033"
+													data-minimum-results-for-search="1"></select>
+											</div>
+											<label class="control-label col-md-2"> 部门类型 </label>
+											<div class="col-md-2">
+												<select id="departmentType" name="departmentType"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/CLA0033"
+													data-minimum-results-for-search="1"></select>
+											</div>
+											<label class="control-label col-md-2"> 职业类别 </label>
+											<div class="col-md-2">
+												<select id="occClassCode" name="occClassCode"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/CLA0033"
+													data-minimum-results-for-search="1"></select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 投保人数 </label>
+											<div class="col-md-2">
+												<div class="input-icon right">
+													<i class="fa"></i>
+													<div class="form-horizontal">
+														<input class="form-control input-small" type="text"
+															name="insuredTotalNum" id="insuredTotalNum" />
+													</div>
+												</div>
+											</div>
+											<label class="control-label col-md-2"> 邮编 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="zipCode" id="zipCode"
+													onkeyup='this.value=this.value.replace(/\D/gi,"")' />
+											</div>
+											<label class="control-label col-md-2"> 省/直辖市 </label>
+											<div class="col-md-2">
+												<select id="provinceCode" name="provinceCode"
+													class="prov form-control input-small"></select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 市/城区 </label>
+											<div class="col-md-2">
+												<select id="cityCode" name="cityCode"
+													class="city form-control input-small"></select>
+											</div>
+											<label class="control-label col-md-2"> 县/地级市 </label>
+											<div class="col-md-2">
+												<select id="countyCode" name="countyCode"
+													class="dist form-control input-small"></select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 乡镇 </label>
+											<div class="col-md-6">
+												<input class="form-control" type="text" size="122"
+													name="townCode" id="townCode" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 村/社区 </label>
+											<div class="col-md-6">
+												<input class="form-control" type="text" size="122"
+													name="villageCode" id="villageCode" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 联系人姓名 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="contactName" id="contactName" />
+											</div>
+											<label class="control-label col-md-2"> 联系人证件类型 </label>
+											<div class="col-md-2">
+												<select id="contactIdType" name="contactIdType"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/CLA0033"
+													data-minimum-results-for-search="1"></select>
+											</div>
+											<label class="control-label col-md-2"> 联系人证件号码 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="contactIdNo" id="contactIdNo" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 性别 <span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<select id="sex" name="sex"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/SEX"
+													data-minimum-results-for-search="1"></select>
+											</div>
+											<label class="control-label col-md-2"> 出生日期 <span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<div id="1"
+													class="input-group input-small date date-picker"
+													data-date-format="yyyy-mm-dd">
+													<input type="text" id='birthDate' name="birthDate"
+														class="form-control" maxlength="25" size="20" /> <span
+														class="input-group-btn">
+														<button class="btn default" type="button">
+															<i class="fa fa-calendar"></i>
+														</button>
+													</span>
+												</div>
+											</div>
+											<label class="control-label col-md-2"> 联系人移动电话 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="contactMobile" id="contactMobile" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 联系人邮箱 <span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="contactEmail" id="contactEmail" />
+											</div>
+											<label class="control-label col-md-2"> 固定电话 <span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="contactTel" id="contactTel" />
+											</div>
+											<label class="control-label col-md-2"> 传真号码 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="faxNo" id="faxNo" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 争议处理方式<span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<select id="gsettleDispute" name="gsettleDispute"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/SEX"
+													data-minimum-results-for-search="1"></select>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="tab-pane" id="tab_15_2">
+									<form class="form-horizontal" name="personalInsurInfoForm"
+										id="personalInsurInfoForm" method="post">
+										<div class="form-group">
+											<label class="control-label col-md-2"> 汇交人姓名 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="joinName" id="joinName" />
+											</div>
+											<label class="control-label col-md-2"> 汇交人证件类型 </label>
+											<div class="col-md-2">
+												<select id="joinIdType" name="joinIdType"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/CLA0033"
+													data-minimum-results-for-search="1"></select>
+											</div>
+											<label class="control-label col-md-2"> 汇交人证件号码 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="joinIdNo" id="joinIdNo" maxlength="25"/>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 汇交人性别 <span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<select id="joinSex" name="joinSex"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/SEX"
+													data-minimum-results-for-search="1"></select>
+											</div>
+											<label class="control-label col-md-2"> 汇交人出生日期 <span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<div id="1"
+													class="input-group input-small date date-picker"
+													data-date-format="yyyy-mm-dd">
+													<input type="text" id='joinBirthDate' name="joinBirthDate"
+														class="form-control" maxlength="25" size="20" /> <span
+														class="input-group-btn">
+														<button class="btn default" type="button">
+															<i class="fa fa-calendar"></i>
+														</button>
+													</span>
+												</div>
+											</div>
+											<label class="control-label col-md-2"> 汇交人移动电话 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="joinMobile" id="joinMobile" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 汇交人邮箱 <span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="joinEmail" id="joinEmail" />
+											</div>
+											<label class="control-label col-md-2"> 汇交人固定电话 <span
+												style="color: red">*</span>
+											</label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="joinTel" id="joinTel" />
+											</div>
+											<label class="control-label col-md-2"> 汇交人传真号码 </label>
+											<div class="col-md-2">
+												<input class="form-control input-small" type="text"
+													size="30" name="joinFaxNo" id="joinFaxNo" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2"> 争议处理方式 </label>
+											<div class="col-md-2">
+												<select id="psettleDispute" name="psettleDispute"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/SEX"
+													data-minimum-results-for-search="1"></select>
+											</div>
+											<label class="control-label col-md-2"> 职业类别 </label>
+											<div class="col-md-2">
+												<select id="occClassCode" name="occClassCode"
+													class="lion-combo form-control select2 input-small"
+													data-valueField='keyId' data-textField='nvalue'
+													data-URL="web/dict/SEX"
+													data-minimum-results-for-search="1"></select>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<form class="form-horizontal" name="proposalInfoForm"
+					id="proposalInfoForm" method="post">
+					<div class="alert alert-danger display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="alert alert-success display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="portlet box default">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i> 要约信息
+							</div>
+							<div class="tools"></div>
+						</div>
+						<div class="portlet-body">
+							<div class="row">
+								<div class="col-md-12">
+									<button data-target="#btnSelect" id="btnSelect"
+										class="btn btn-sm yellow">
+										<i class="fa fa-edit"></i>查询责任
+									</button>
+								</div>
+								<div class="col-md-12">
+									<table
+										class="lion-datagrids table table-striped table-bordered table-hover"
+										id="busprodList" data-singleselect="true"
+										data-loadUrl="/example/web/example/search" data-checkbox="true"
+										data-pageSize="3" data-loading="false">
+										<thead>
+											<tr>
+												<th class="table-checkbox" data-field='applId' data-checkbox="true">选择</th>
+												<th data-field='busiPrdCode' >险种名称</th>
+												<th data-field='amount'>保额</th>
+												<th data-field='premium'>保费</th>
+												<th data-field="insuredNum">承保人数</th>
+												<th data-field="validateDate">保险期间</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 被保险人总数 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control" type="text"
+											size="30" name="insuredTotalNum" id="insuredTotalNum" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 保险期间 </label>
+								<div class="col-md-2">
+									<div class="input-group">
+										<input class="form-control input-small" type="text"
+											name="insurDur" id="insurDur" /> <select id="dateType"
+											name="dateType" placeholder="选择保险期间..."
+											class="input-group-addon" data-valueField='keyId'
+											data-textField='nvalue' data-URL="web/dict/SEX"
+											data-minimum-results-for-search="1"></select>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 保费合计 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control" type="text"
+											size="30" name="sumPrem" id="sumPrem" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 生效方式 </label>
+								<div class="col-md-2">
+									<select id="effectType" name="effectType"
+										class="lion-combo form-control sselect2"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 指定生效日 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control" type="text"
+											size="30" name="speEffectDate" id="speEffectDate" />
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+<!-- 								<label class="control-label col-md-2"> 是否频次生效 </label> -->
+<!-- 								<div class="col-md-2"> -->
+<!-- 									<select id="frequencyEffectFlag" name="frequencyEffectFlag" -->
+<!-- 										class="lion-combo form-control select2" -->
+<!-- 										data-valueField='keyId' data-textField='nvalue' -->
+<!-- 										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select> -->
+<!-- 								</div> -->
+								<label class="control-label col-md-2"> 生效频率 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control" type="text"
+											size="30" name="effectFreq" id="effectFreq" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 首期扣款截止日期 </label>
+								<div class="col-md-2">
+									<div id="1" class="input-group date date-picker"
+										data-date-format="yyyy-mm-dd">
+										<input type="text" id='firstChargeDate'
+											name="firstChargeDate" placeholder="选择首期扣款截止日期..."
+											class="form-control" /> <span class="input-group-btn">
+											<button class="btn default" type="button">
+												<i class="fa fa-calendar"></i>
+											</button>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<label class="control-label" for="convention"> <strong>特别约定:</strong>
+									</label>
+									<textarea class="form-control margin-bottom-10" rows="4"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<form class="form-horizontal" name="payInfoForm" id="payInfoForm"
+					method="post">
+					<div class="alert alert-danger display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="alert alert-success display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="portlet box default">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i> 缴费信息
+							</div>
+							<div class="tools"></div>
+						</div>
+						<div class="portlet-body">
+							<div class="form-group">
+								<label class="control-label col-md-2"> 缴费方式 </label>
+								<div class="col-md-2">
+									<select id="moneyItrvl" name="moneyItrvl"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+
+								<label class="control-label col-md-2"> 缴费形式 </label>
+								<div class="col-md-2">
+									<select id="moneyinType" name="moneyinType"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+
+								<label class="control-label col-md-2"> 保费来源 </label>
+								<div class="col-md-2">
+									<select id="premFrom" name="premFrom"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 缴费开户行代码 </label>
+								<div class="col-md-2">
+									<select id="bankCode" name="bankCode"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+
+								<label class="control-label col-md-2"> 开户行名称 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" size="30"
+										name="bankBranchName" id="bankBranchName" />
+								</div>
+								<label class="control-label col-md-2"> 银行账号 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" size="30"
+										name="bankaccNo" id="bankaccNo" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 结算方式 </label>
+								<div class="col-md-2">
+									<select id="paymentType" name="paymentType"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+
+								<label class="control-label col-md-2"> 结算限额 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" size="30"
+										name="paymentLimit" id="paymentLimit" />
+								</div>
+								<label class="control-label col-md-2"> 结算日期 </label>
+								<div class="col-md-2">
+									<div id="1" class="input-group input-small date date-picker"
+										data-date-format="yyyy-mm-dd">
+										<input type="text" id="paymentDate" name="paymentDate"
+											class="form-control" maxlength="25" size="20" /> <span
+											class="input-group-btn">
+											<button class="btn default" type="button">
+												<i class="fa fa-calendar"></i>
+											</button>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 是否续期扣款</label>
+								<div class="col-md-2">
+									<select id="renewalChargeFlag" name="renewalChargeFlag"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 续期扣款期数 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" size="30"
+										name="bankBranchName" id="bankBranchName" />
+								</div>
+								<label class="control-label col-md-2"> 扣款截止日期 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" size="30"
+										name="chargeDeadline" id="chargeDeadline" />
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 是否多期暂交</label>
+								<div class="col-md-2">
+									<select id="multiRevFlag" name="multiRevFlag"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 多期暂交年数</label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" size="30"
+										name="multiTempYear" id="multiTempYear" />
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 是否续保 </label>
+								<div class="col-md-2">
+									<select id="renewFlag" name="renewFlag"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+
+								<label class="control-label col-md-2"> 续保扣款期数 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" size="30"
+										name="renewChargeNum" id="renewChargeNum" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<form class="form-horizontal" name="printInfoForm"
+					id="printInfoForm" method="post">
+					<div class="alert alert-danger display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="alert alert-success display-hide">
+						<button class="close" data-close="alert"></button>
+					</div>
+					<div class="portlet box default">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i> 打印信息
+							</div>
+							<div class="tools"></div>
+						</div>
+						<div class="portlet-body">
+							<div class="form-group">
+								<label class="control-label col-md-2"> 承保通知书类型 </label>
+								<div class="col-md-2">
+									<select id="underNoticeType" name="underNoticeType"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1">
+									</select>
+								</div>
+								<label class="control-label col-md-2"> 清单打印 </label>
+								<div class="col-md-2">
+									<select id="listPrint" name="listPrint"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1">
+									</select>
+								</div>
+								<label class="control-label col-md-2"> 个人凭证打印 </label>
+								<div class="col-md-2">
+									<select id="personalIdPrint" name="personalIdPrint"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 清单标记 </label>
+								<div class="col-md-2">
+									<select id="listFlag" name="listFlag"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1">
+									</select>
+								</div>
+								<label class="control-label col-md-2"> 赠送险标记 </label>
+								<div class="col-md-2">
+									<select id="giftInsFlag" name="giftInsFlag"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1">
+									</select>
+								</div>
+								<label class="control-label col-md-2"> 保单性质 </label>
+								<div class="col-md-2">
+									<select id="polProperty" name="polProperty"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1">
+									</select>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 是否人工核保</label>
+								<div class="col-md-2">
+									<select id="manualUwFlag" name="manualUwFlag"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 是否异常告知</label>
+								<div class="col-md-2">
+									<select id="unusualFlag" name="unusualFlag"
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue'
+										data-URL="web/dict/SEX" data-minimum-results-for-search="1"></select>
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 投保资料影像/档案清单文件上传
+								</label>
+								<div class="col-md-6">
+									<input id="imageListUpload" name="imageListUpload"
+										class="file" type="file"
+										data-upload-url="/example/web/file/upload" multiple
+										data-min-file-count="1">
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="col-md-12  form-group" align="center">
+					<button type="button" class="btn blue" id="btnGoup">被保人分组</button>
+					<button type="button" class="btn blue" id="btnOranLevel">组织层次架构</button>
+				</div>
+			</div>
+		</div>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="btnModel" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+		</div>
+	</div>
+</div>

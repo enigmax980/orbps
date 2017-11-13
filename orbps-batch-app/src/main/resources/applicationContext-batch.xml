@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:soa="http://www.e-chinalife.com/soa/"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xmlns:jaxrs-client="http://cxf.apache.org/jaxrs-client"
+       xmlns:dasc="http://www.halo.com/schema/dasc"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://cxf.apache.org/jaxws
+       http://cxf.apache.org/schemas/jaxws.xsd
+       http://cxf.apache.org/jaxrs
+       http://cxf.apache.org/schemas/jaxrs.xsd
+       http://cxf.apache.org/jaxrs-client
+       http://cxf.apache.org/schemas/jaxrs-client.xsd
+       http://www.halo.com/schema/dasc
+       http://www.halo.com/schema/dasc/dasc.xsd
+       ">
+
+    <description>orbps-batch-app</description>
+    <!-- ///////////////////////////客户端注册区域////////////////////////-->
+    <!-- 调用任务管理平台的DASC服务 -->
+    <dasc:client id="taskProcessServiceDascClient"
+        interface="com.newcore.tsms.service.api.task.TaskProcessService"
+        qos="2" retry="10" persistent="false"/>
+    <!--字典服务客户端注册 -->
+    <jaxrs-client:client id="dictServiceClient"
+                         serviceClass="com.newcore.supports.service.api.DictService"
+                         address="http://${ws.client.dicts.address}/${ws.protocol.rest.path}/dictService">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+
+    <!-- ///////////////////////////多数据源配置区域///////////////////// -->
+
+	<!--定时任务及批处理启停服务接口 -->
+	<jaxrs:server beanNames="batchJobControlService"
+		address="/${ws.protocol.rest.path}/batchJobControlService">
+		<jaxrs:providers>
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+
+</beans>

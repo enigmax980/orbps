@@ -1,0 +1,836 @@
+<script
+	src="/orbps/orbps/contractEntry/listImport/js/offlineListImport.js"
+	type="text/javascript"></script>
+<script src="/orbps/orbps/public/js/publicValidate.js"
+	type="text/javascript"></script>
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="profile-content">
+		<div class="portlet light">
+			<div class="portlet-body" id="step-container">
+				<div class="row">
+					<form class="form-horizontal" name="ipsnInfoFormQuery"
+						id="ipsnInfoFormQuery" method="post">
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 被保险人信息查询
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="form-group">
+									<label class="control-label col-md-2"> 投保单号<span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control" type="text"
+												name="applNo" id="applNo" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 被保险人编号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="ipsnNo" id="ipsnNo"
+												onkeyup="if(this.value.length==1){commevent(this,/[^1-9]/g,'')}else{commevent(this,/\D/g,'')}"  />
+										</div>
+									</div>
+										<button type="button" class="btn gray" id="btnQuery">
+											<i class="glyphicon glyphicon-search"></i>&nbsp;查&nbsp;询
+										</button>
+										<button type="button" class="btn gray" id="btnLast" disabled = "true">
+											<i class="glyphicon glyphicon-arrow-up"></i>&nbsp;上一人
+										</button>
+										<button type="button" class="btn gray" id="btnNext" disabled = "true">
+											<i class="glyphicon glyphicon-arrow-down"></i>&nbsp;下一人
+										</button>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!-- 被保险人信息录入 -->
+					<form class="form-horizontal" name="ipsnInfoForm" id="ipsnInfoForm"
+						method="post">
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 被保险人信息
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<!-- 查询条件div  end -->
+								<div class="form-group">
+									<label class="control-label col-md-2"> 被保险人编号<span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="ipsnNo" id="ipsnNo"
+												onkeyup="if(this.value.length==1){commevent(this,/[^1-9]/g,'')}else{commevent(this,/\D/g,'')}"  />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 被保险人姓名<span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="name" id="name"
+												onkeyup="keyupName('name',this)"
+												onblur="blurName('name','被保险人姓名')" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 是否连带被保险人<span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<select id="joinIpsnFlag" name="joinIpsnFlag"
+											placeholder="是否连带被保险人.."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='key' data-textField='description'
+											data-URL="web/dict/YES_NO_FLAG" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 证件类型 <span
+										style="color: red">*</span></label>
+									<div class="col-md-2">
+										<select id="idType" name="idType" placeholder="请选择证件类型..."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='key' data-textField='description'
+											data-URL="web/dict/ID_TYPE_01" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+									<label class="control-label col-md-2"> 证件号码<span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="idNo" id="idNo"
+												onkeyup="checklength(this,18)" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 被保险人性别<span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<select id="ipsursex" name="ipsursex" placeholder="请输入性别..."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='key' data-textField='description'
+											data-URL="/orbps/web/dict/SEX" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+								</div>
+								<div class="form-group">
+									<!--  <label class="control-label col-md-2"> 被保险人编号<span
+                                        style="color: red">*</span>
+                                    </label>
+                                    <div class="col-md-2">
+                                        <div class="input-icon right">
+                                            <i class="fa"></i> <input class="form-control input-small"
+                                                type="text" name="ipsnNo" id="ipsnNo" />
+                                        </div>
+                                    </div> -->
+									<label class="control-label col-md-2"> 被保险人出生日期 <span
+										style="color: red">*</span></label>
+									<div class="col-md-2">
+
+
+										<!-- 	<div id="1" class="input-group input-small date date-picker"
+											data-date-format="yyyy-mm-dd" data-date-end-date="+0d">
+											<input type="text" id='applDate' name="applDate"
+												placeholder="投保日期..." class="form-control" /> <span
+												class="input-group-btn">
+												<button id='applDateBtn' class="btn default" type="button">
+													<i class="fa fa-calendar"></i>
+												</button>
+											</span>
+										</div> -->
+										<div id="1" class="input-group input-small date date-picker"
+											data-date-format="yyyy-mm-dd" data-date-end-date="+0d">
+											<input type="text" id='birthDate' name='birthDate'
+												placeholder="请选择出生日期..." class="form-control" maxlength="25"
+												size="20" onchange="checkAge()" /> <span
+												class="input-group-btn">
+												<button id='birthDates' class="btn default" type="button">
+													<i class="fa fa-calendar"></i>
+												</button>
+											</span>
+										</div>
+									</div>
+
+									<label class="control-label col-md-2"> 被保险人年龄<span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="age" id="age" />
+										</div>
+									</div>
+
+									<label class="control-label col-md-2"> 主被保人编号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="mainIpsnNo" id="mainIpsnNo" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 与主被保险人关系</label>
+									<div class="col-md-2">
+										<select id="relToIpsn" name="relToIpsn"
+											placeholder="请选择与主被保险人关系..."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='key' data-textField='description'
+											data-URL="/orbps/web/dict/REL_TO_HLDR" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+									<label class="control-label col-md-2"> 职业代码 <span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<select id="occupationalCodes" name="occupationalCodes"
+											placeholder="请选择职业代码..."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='key' data-textField='description'
+											data-URL="/orbps/web/extdict/OCC_SUBCLS_CODE/OccupationInfo"
+											data-isconnect="true" data-ishidden="true"
+											data-hiddenkeys="level" data-minimum-results-for-search="1"></select>
+									</div>
+									<label class="control-label col-md-2"> 职业风险等级 <span
+										style="color: red">*</span></label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="riskLevel" id="riskLevel" readonly="true" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 是否在职 <span
+										style="color: red">*</span></label>
+									<div class="col-md-2">
+										<select id="onJobFlag" name="onJobFlag"
+											placeholder="请选择是否在职.."
+											class="lion-combo form-control select2 input-small "
+											data-valueField='key' data-textField='description'
+											data-URL="web/dict/YES_NO_FLAG" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+									<div id = "divrelToHldr">
+									<label class="control-label col-md-2"> 与投保人关系</label>
+									<div class="col-md-2">
+										<select id="relToHldr" name="relToHldr" placeholder="与投保人关系.."
+											class="lion-combo form-control select2 input-small "
+											data-valueField='key' data-textField='description'
+											data-URL="/orbps/web/dict/REL_TO_HLDR" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+									</div>
+									<label class="control-label col-md-2"> 被保人电子邮箱地址 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="email" id="email" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 是否有异常告知 <span
+										style="color: red">*</span></label>
+									<div class="col-md-2">
+										<select id="healthFlag" name="healthFlag"
+											placeholder="请选择是否有异常告知 .."
+											class="lion-combo form-control select2 input-small "
+											data-valueField='key' data-textField='description'
+											data-URL="web/dict/YES_NO_FLAG" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+									<label class="control-label col-md-2"> 医保标识 </label>
+									<div class="col-md-2">
+										<select id="medicalInsurFlag" name="medicalInsurFlag"
+											placeholder="请选择医保标识..."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='key' data-textField='description'
+											data-URL="web/dict/IPSN_SI_HEALTH_TYPE" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+									<label class="control-label col-md-2"> 医保代码 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="medicalInsurCode" id="medicalInsurCode" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 医保编号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="medicalInsurNo" id="medicalInsurNo" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 被保险人手机号码 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="phone" id="phone" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 被保人工号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="workNo" id="workNo"
+												onkeyup="checklength(this,20)" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 被保人工作地点 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="workAddress" id="workAddress"
+												onkeyup="checklength(this,200)" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 组织层次代码 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="groupLevelCode" id="groupLevelCode" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 收费属组号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="feeGrpNo" id="feeGrpNo" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 个人交费金额 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="charge" id="charge"
+												onkeyup="numberfloatValidata(this)"
+												onblur="checknumFlag(this)" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 单位交费金额 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="grpPayAmount" id="grpPayAmount"
+												onkeyup="numberfloatValidata(this)"
+												onblur="checknumFlag(this)" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 同业公司人身保险保额合计 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="tyNetPayAmnt" id="tyNetPayAmnt"
+												onkeyup="numberfloatValidata(this)"
+												onblur="checknumFlag(this)" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal" name="AccInfo" id="AccInfo"
+						method="post">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 交费账户信息
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="row">
+									<div class="col-md-12">
+										<button id="addAccInfo" class="btn btn-sm blue">
+											<i class="fa fa-plus"></i>&nbsp;新增交费账户信息
+										</button>
+										<button id="delAccInfo" class="btn btn-sm red">
+											<i class="fa fa-trash"></i>&nbsp;删除交费账户信息
+										</button>
+									</div>
+									<div class="col-md-12">
+										<table id="AccInfoTb"
+											class="lion-editDatagrids table dataTable table-bordered table-striped"
+											data-paginate="true" data-loadurl="" data-pagesize="3"
+											data-edit="true"
+											data-callbackurl="/orbps/orbps/contractEntry/grpInsurAppl/json"
+											data-pagecount="3,5,10,15,20,30,50" data-loading="false"
+											data-issort="false">
+											<thead>
+												<th width="20px" data-checkboxs="true" data-field="applId"
+													id="applId"></th>
+												<th width="60px"
+													data-type='{"type":"input","id":"seqNo" ,"name":"seqNo"}'
+													data-field="seqNo" data-sortDir="desc">账户顺序</th>
+												<th width="60px"
+													data-type='{"type":"input","id":"ipsnPayAmnt" ,"name":"ipsnPayAmnt"}'
+													data-field="ipsnPayAmnt" data-sortDir="desc">个人扣款金额</th>
+												<th width="60px"
+													data-type='{"type":"input","id":"ipsnPayPct" ,"name":"ipsnPayPct"}'
+													data-field="ipsnPayPct" data-sortDir="desc">个人账户交费比例（%）</th>
+												<th width="60px"
+													data-type='{"type":"input","id":"bankAccName" ,"name":"bankAccName"}'
+													data-field="bankAccName" data-sortDir="desc">交费账户</th>
+												<th width="60px"
+													data-type='{"type":"combox","id":"bankCode" ,"name":"bankCode","key":"key","value":"description","url":"web/dict/BANK_CODE"}'
+													data-field="bankCode" data-sortDir="desc">交费银行</th>
+												<th width="60px"
+													data-type='{"type":"input","name":"bankAccNo","id":"bankAccNo"}'
+													data-field="bankAccNo" }'data-sortDir="desc">交费账号</th>
+											</thead>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!-- 投保人信息录入 -->
+					<form class="form-horizontal" name="hldrInfoForm" id="hldrInfoForm"
+						method="post">
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 投保人信息
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="form-group">
+									<label class="control-label col-md-2"> 投保人姓名 <span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="hldrName" id="hldrName"
+												onkeyup="keyupName('name',this)"
+												onblur="blurName('name','投保人姓名')" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 证件类型 <span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<select id="hldrIdType" name="hldrIdType"
+											placeholder="请选择投保人证件类型..."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='key' data-textField='description'
+											data-URL="/orbps/web/dict/ID_TYPE_01" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+									<label class="control-label col-md-2"> 证件号码 <span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="hldrIdNo" id="hldrIdNo"
+												onkeyup="checklength(this,18)" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 投保人性别 <span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<select id="hldrSex" name="hldrSex" placeholder="请选择投保人性别..."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='key' data-textField='description'
+											data-URL="/orbps/web/dict/SEX" data-isconnect="true"
+											data-minimum-results-for-search="1"></select>
+									</div>
+									<label class="control-label col-md-2"> 出生日期 <span
+										style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div id="1" class="input-group input-small date date-picker"
+											data-date-format="yyyy-mm-dd">
+											<input type="text" id='hldrBirth' name='hldrBirth'
+												placeholder="请选择出生日期..." class="form-control" maxlength="25"
+												size="20" /> <span class="input-group-btn">
+												<button id='hldrBirths' class="btn default" type="button">
+													<i class="fa fa-calendar"></i>
+												</button>
+											</span>
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 投保人手机号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="hldrPhone" id="hldrPhone" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal" name="bsInfoForm" id="bsInfoForm"
+						method="post">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 要约信息
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="row">
+									<div class="col-md-12">
+										<table class="table table-striped table-bordered table-hover"
+											id="coverageListTb">
+											<thead>
+												<tr>
+													<th style="width: 10px;">&nbsp;</th>
+													<th style="width: 60px;" datafield="polCode">险种代码</th>
+													<th style="width: 60px;" datafield="polName">险种名称</th>
+													<th style="width: 60px;" datafield="subPolCode">可选责任代码</th>
+													<th style="width: 60px;" datafield="subPolName">可选责任名称</th>
+													<th style="width: 60px;" datafield="grouCode">属组代码</th>
+													<th style="width: 60px;" datafield="grouName">属组名称</th>
+													<th style="width: 60px;" datafield="amount">保额</th>
+													<th style="width: 60px;" datafield="premium">保费</th>
+													<th style="width: 20px;">操作</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td colspan="10" align="center">无记录</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="form-group" id="groupDiv">
+									<label class="control-label col-md-2" id="groupCodeLabel">
+										属组代码 </label>
+									<div class="col-md-2">
+										<select id="groupCode" name="groupCode"
+											class="form-control input-small"
+											data-minimum-results-for-search="1">
+											<option selected="selected" value="">请选择属组代码...</option>
+										</select>
+									</div>
+									<label class="control-label col-md-2" id="groupNameLabel">
+										属组名称 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="groupName" id="groupName" readOnly="true"/>
+										</div>
+									</div>
+								</div>
+								<div class="form-group" id="polDiv">
+									<label class="control-label col-md-2" id="polCodeLabel">
+										险种代码<span style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<select id="polCode" name="polCode"
+											class="form-control input-small"
+											data-minimum-results-for-search="1">
+											<option selected="selected" value="">请选择险种代码...</option>
+										</select>
+									</div>
+									<label class="control-label col-md-2" id="polNameLabel">
+										险种名称<span style="color: red">*</span>
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="polName" id="polName" />
+										</div>
+									</div>
+									<label class="control-label col-md-2" id="subPolCodeLabel">
+										责任代码 </label>
+									<div class="col-md-2">
+										<select id="subPolCode" name="subPolCode"
+											class="form-control input-small"
+											data-minimum-results-for-search="1">
+											<option selected="selected" value="">请先选择险种代码...</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group" id="premiumDiv">
+									<label class="control-label col-md-2" id="subPolNameLabel">
+										责任名称 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="subPolName" id="subPolName" />
+										</div>
+									</div>
+									<label class="control-label col-md-2" id="amountLabel">
+										保额 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="amount" id="amount"
+												onkeyup="numberfloatValidata(this)"
+												onblur="checknumFlag(this)" />
+										</div>
+									</div>
+									<label class="control-label col-md-2" id="premiumlabel">
+										保费 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="premium" id="premium"
+												onkeyup="numberfloatValidata(this)"
+												onblur="checknumFlag(this)" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group" align="center" id="btnDiv">
+									<input type="button" id="btnAdd" name="btnAdd" value="添加"
+										class="btn btn-sm yellow" />
+									<input type="button" id="btnEdit" name="btnEdit" value="修改"
+										class="btn btn-sm yellow" /> 
+									<input type="button" id="btnClear" name="btnClear" value="清空"
+										class="btn btn-sm yellow" />
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal" name="beneficiaryInfo"
+						id="beneficiaryInfo" method="post">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 受益人信息
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="row">
+									<div class="col-md-12">
+										<button id="btnAddBusi" class="btn btn-sm blue">
+											<i class="fa fa-plus"></i>&nbsp;新增受益人信息
+										</button>
+										<button id="btnDelBusi" class="btn btn-sm red">
+											<i class="fa fa-trash"></i>&nbsp;删除受益人信息
+										</button>
+									</div>
+									<div class="col-md-12">
+										<table id="beneInfoTb"
+											class="lion-editDatagrids table dataTable table-bordered table-striped"
+											data-paginate="true"
+											data-loadurl="/orbps/web/orbps/contractEntry/offlineList/queryBene"
+											data-pagesize="3" data-edit="true"
+											data-callbackurl="/orbps/orbps/contractEntry/grpInsurAppl/json"
+											data-pagecount="3,5,10,15,20,30,50" data-loading="false"
+											data-issort="false">
+											<thead>
+												<th width="20px" data-checkboxs="true" data-field="applId"
+													id="applId" name="applId"></th>
+												<th width="60px"
+													data-type='{"type":"input","id":"benefitOrder" ,"name":"benefitOrder"}'
+													data-field="benefitOrder" data-sortDir="desc">受益顺序</th>
+												<th width="60px"
+													data-type='{"type":"input","id":"name" ,"name":"name"}'
+													data-field="name" data-sortDir="desc">姓名</th>
+												<th width="60px"
+													data-type='{"type":"combox","name":"relToIpsnTb","key":"key","value":"description","url":"/orbps/web/dict/REL_TO_HLDR"}'
+													data-field="relToIpsnTb">与被保人关系</th>
+												<th width="60px"
+													data-type='{"type":"combox","name":"idTypeTb","key":"key","value":"description","url":"/orbps/web/dict/ID_TYPE_01"}'
+													data-field="idTypeTb">证件类别</th>
+												<th width="60px"
+													data-type='{"type":"input","id":"idNo" ,"name":"idNo"}'
+													data-field="idNo" data-sortDir="desc">证件号</th>
+												<th width="50px"
+													data-type='{"type":"combox","name":"sex","key":"key","value":"description","url":"/orbps/web/dict/SEX"}'
+													data-field="sex">性别</th>
+												<th width="60px"
+													data-type='{"type":"datepicker","id":"birthDate" ,"name":"birthDate"}'
+													data-field="birthDate">出生日期</th>
+
+												<th width="60px"
+													data-type='{"type":"input","id":"molecule" ,"name":"beneAmount"}'
+													data-field="beneAmount" data-sortDir="desc">受益份额（%）</th>
+											</thead>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="form-group" align="center" id="submit">
+						<button type="button" class="btn gray" id="btnSubmit">
+							<i class="glyphicon glyphicon-saved"></i>&nbsp;添加被保人
+						</button>
+						<button type="button" class="btn gray" id="btnEdit">
+							<i class="glyphicon glyphicon-edit"></i>&nbsp;修改被保人
+						</button>
+						<button type="button" class="btn gray" id="btnDel">
+							<i class="glyphicon glyphicon-remove"></i>&nbsp;删&nbsp;除
+						</button>
+						<button type="button" class="btn gray" id="btnClear">
+							<i class="glyphicon glyphicon-edit"></i>&nbsp;清空
+						</button>
+						<!--                        <button type="button" class="btn gray" id="lastPerson"> -->
+						<!--                            <i class="glyphicon glyphicon-arrow-left"></i>&nbsp;上一人 -->
+						<!--                        </button> -->
+						<!--                        <button type="button" class="btn gray" id="nextPerson"> -->
+						<!--                            <i class="glyphicon glyphicon-arrow-right"></i>&nbsp;下一人 -->
+						<!--                        </button> -->
+					</div>
+
+					<form name="uploadListForm" enctype="multipart/form-data"
+						id="uploadListForm" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-md-2" for="file"> 清单文件 </label>
+							<div class="col-md-8">
+								<input id="fileupload" type="file" name="multipartFile"
+									data-url="" multiple>
+							</div>
+						</div>
+						<div class="form-group" align="center">
+							<button type="button" class="btn green" id="btnGrpDownload">
+								&nbsp;团单模板下载</button>
+							<button type="button" class="btn green" id="btnSgDownload">
+								&nbsp;清汇模板下载</button>
+						</div>
+						<div class="form-group">
+							<div class="col-md-10">&nbsp;</div>
+							<div class="col-md-2" style="font-size: 20px">
+								<input type="checkbox" name="continueImport" id="continueImport" />继续导入
+							</div>
+						</div>
+					</form>
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-2" align="right">
+								<label class="control-label">本次导入进度</label>
+							</div>
+							<div class="progress col-md-9">
+								<div id="progressBar" class="progress-bar" role="progressbar" aria-valuenow="60"
+									aria-valuemin="0" aria-valuemax="100">
+									<span id="spanPct">0%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 form-group">
+						<label class="control-label col-md-2">
+							被保人总数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="listSumNum" id="listSumNum" readonly="true"/>
+							</div>
+						</div>
+						<label class="control-label col-md-2">
+							导入成功总条数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="listImpNum" id="listImpNum" readonly="true"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 form-group">
+						<label class="control-label col-md-2">
+							本次导入总条数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="thisListSumNum" id="thisListSumNum" readonly="true"/>
+							</div>
+						</div>
+						<label class="control-label col-md-2">
+							本次导入正确条数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="thisListImpNum" id="thisListImpNum" readonly="true"/>
+							</div>
+						</div>
+						<label class="control-label col-md-2">
+							本次导入错误条数 </label>
+						<div class="col-md-2">
+							<div class="input-icon right">
+								<i class="fa"></i> <input class="form-control input-small"
+									type="text" name="thisListErrNum" id="thisListErrNum" readonly="true"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12" align="center">
+						<button type="button" class="btn gray" id="btnImport">
+							<i class="glyphicon glyphicon-edit"></i>&nbsp;清单导入
+						</button>
+						<button type="button" class="btn gray" id="btnExportError">
+							<i class="glyphicon glyphicon-remove"></i>&nbsp;导出差错
+						</button>
+						<button type="button" class="btn gray" id="btnStopImport">
+							<i class="glyphicon glyphicon-stop"></i>&nbsp;停止导入
+						</button>
+						<button type="button" class="btn gray" id="btnExport">
+							<i class="glyphicon glyphicon-import"></i>&nbsp;导出被保人清单
+						</button>
+						<button type="button" class="btn gray" id="btnAllCommit">
+							<i class="glyphicon glyphicon-ok"></i>&nbsp;全部录入完成
+						</button>
+						<button type="button" class="btn gray" id="btnlocation">
+							<i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp;返回基本信息录入
+						</button>
+						<!-- 	<div calss="col-md-6">
+							<label class="control-label col-md-2" id="amountLabel"> 是否继续导入 <span
+										style="color: red">*</span>
+							</label>
+							<div class="col-md-3">
+								<select id="continueImport" name="continueImport"
+									placeholder="是否继续导入.."
+									class="lion-combo form-control select2 input-small"
+									data-valueField='key' data-textField='description'
+									data-URL="web/dict/YES_NO_FLAG"
+									data-minimum-results-for-search="1"></select>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,42 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <cl:HEADER xmlns:cl="http://www.e-chinalife.com/soa/">
+         <SVCNAME>ProcScInterFaceNew</SVCNAME>
+         <SVCCODE>SLBPS-0100</SVCCODE>
+         <SVCVER>1.0</SVCVER>
+         <ORISYS>SLBPS</ORISYS>
+         <TRANTIME>20161013112210465</TRANTIME>
+         <TRANNO>C8109C13E8B44484A261A9A7867A5CA5</TRANNO>
+         <AUTH>
+            <BRANCHNO>120000</BRANCHNO>
+            <USERID>TT1007</USERID>
+            <TOKENID>ab000000</TOKENID>
+         </AUTH>
+         <SECURITY>
+            <SIGNATURE/>
+         </SECURITY>
+         <ROUTE>
+            <BRANCHNO>120000</BRANCHNO>
+            <DESTSYS>SLBPS</DESTSYS>
+         </ROUTE>
+         <PROCESSING>
+            <REQPROCNUM>1</REQPROCNUM>
+            <PROCMODE>S</PROCMODE>
+         </PROCESSING>
+      </cl:HEADER>
+   </soap:Header>
+   <soap:Body>
+      <ns2:procScInterFace xmlns:ns2="http://www.e-chinalife.com/soa/">
+         <BODY>
+            <REQUEST>
+               <SERIALNUM>1</SERIALNUM>
+               <FTP_XML_IN>
+                  <batch_no>120000</batch_no>
+                  <file_name>RZ_120000_815535_20160127161805877.tar.gz</file_name>
+                  <proc_flag>R</proc_flag>
+               </FTP_XML_IN>
+            </REQUEST>
+         </BODY>
+      </ns2:procScInterFace>
+   </soap:Body>
+</soap:Envelope>

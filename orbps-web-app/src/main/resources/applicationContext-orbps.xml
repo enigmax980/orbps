@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:soa="http://www.e-chinalife.com/soa/"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xmlns:jaxrs-client="http://cxf.apache.org/jaxrs-client"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://cxf.apache.org/jaxws
+       http://cxf.apache.org/schemas/jaxws.xsd
+       http://cxf.apache.org/jaxrs
+       http://cxf.apache.org/schemas/jaxrs.xsd
+       http://cxf.apache.org/jaxrs-client
+       http://cxf.apache.org/schemas/jaxrs-client.xsd
+       ">
+
+    <description>orbps-web-app</description>
+
+    <!-- ///////////////////////////客户端注册区域////////////////////////-->
+
+    <!-- 团单查询注册-->
+    <jaxrs-client:client id="insurApplServices"
+                        serviceClass="com.newcore.orbps.service.api.InsurApplServices"
+                        address="http://${ws.client.orbps.esb.address}/insurApplServices">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    <!-- 契约撤销注册-->
+    <jaxrs-client:client id="applStateUndoService"
+                        serviceClass="com.newcore.orbps.service.api.ApplStateUndoService"
+                        address="http://${ws.client.orbps.esb.address}/applStateUndoService">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    <!-- 规则添加注册-->
+    <jaxrs-client:client id="insurApplApprovalRuleConfigServiceImpl"
+                        serviceClass="com.newcore.orbps.service.api.InsurApplApprovalRuleConfigService"
+                        address="http://${ws.client.orbps.esb.address}/ApprovalRuleConfigService">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    <!-- 团单注册-->
+    <jaxrs-client:client id="grpInsurApplServer"
+                        serviceClass="com.newcore.orbps.service.api.InsurApplServer"
+                        address="http://${ws.client.orbps.esb.address}/grpInsurApplServer">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    <!--收费组查询 -->
+    <jaxrs-client:client id="queryipsnPayGrpInfoByApplNo"
+                        serviceClass="com.newcore.orbps.service.api.QueryipsnPayGrpInfoByApplNo"
+                        address="http://${ws.client.orbps.esb.address}/queryipsnPayGrpInfoByApplNo">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    <!--暂交费账户信息查询 -->
+    <jaxrs-client:client id="queryAccInfoByApplNo"
+                        serviceClass="com.newcore.orbps.service.api.QueryAccInfoByApplNo"
+                        address="http://${ws.client.orbps.esb.address}/queryAccInfoByApplNo">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    <!--暂交费支取 -->
+    <jaxrs-client:client id="procEarnestPayPlnmioRecInfo"
+                        serviceClass="com.newcore.orbps.service.api.ProcEarnestPayPlnmioRecInfo"
+                        address="http://${ws.client.orbps.esb.address}/procEarnestPayPlnmioRecInfo">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    <!--契约撤销查询 -->
+    <jaxrs-client:client id="contractQueryService"
+                        serviceClass="com.newcore.orbps.service.api.ContractQueryService"
+                        address="http://${ws.client.orbps.esb.address}/contractQueryService">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+	<!-- 回执核销-->
+    <jaxrs-client:client id="orbpsInsurApplCvTaskServer"
+                        serviceClass="com.newcore.orbps.service.api.OrbpsInsurApplCvTaskServer"
+                        address="http://${ws.client.orbps.esb.address}/orbpsInsurApplCvTaskServer">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    <!-- 回执核销查询-->
+    <jaxrs-client:client id="queryInsurApplCvTaskServer"
+                        serviceClass="com.newcore.orbps.service.api.QueryInsurApplCvTaskServer"
+                        address="http://${ws.client.orbps.esb.address}/queryInsurApplCvTaskServer">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>
+    <!-- 人工审批服务-->
+    <jaxrs-client:client id="manualApprovalService"
+                        serviceClass="com.newcore.orbps.service.api.ManualApprovalService"
+                        address="http://${ws.client.orbps.esb.address}/manualApprovalService">
+       <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+       </jaxrs-client:providers>
+    </jaxrs-client:client>      
+    
+    <!-- 缓存管理客户端注册-->
+    <jaxrs-client:client id="cacheManagerClient"
+                         serviceClass="com.newcore.supports.service.api.CacheManager"
+                         address="http://${ws.client.orbps.address}/${ws.protocol.rest.path}/cache">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+
+    <!--字典服务客户端注册 -->
+    <jaxrs-client:client id="dictServiceClient"
+                         serviceClass="com.newcore.supports.service.api.DictService"
+                         address="http://${ws.client.dicts.address}/${ws.protocol.rest.path}/dictService">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+
+
+    <!-- 被保人服务 -->
+    <jaxrs-client:client id="restfulGrpInsuredService"
+                         serviceClass="com.newcore.orbps.service.api.GrpInsuredService"
+                         address="http://${ws.client.orbps.esb.address}/grpInsuredService">
+                        <!-- 10.31.58.111:16604/ESB/ORBPS -->
+        <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+
+
+    <!-- 受理服务 -->
+    <jaxrs-client:client id="insuredAcceptService"
+                         serviceClass="com.newcore.orbps.service.api.InsuredAcceptService"
+                         address="http://${ws.client.orbps.esb.address}/insuredAcceptService">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    <!--共保服务接口 -->
+    <jaxrs-client:client id="comAgrService"
+                         serviceClass="com.newcore.orbps.service.api.CommonAgreementService"
+                         address="http://${ws.client.orbps.esb.address}/comAgrService">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+
+    <!--清单信息查询接口 -->
+    <jaxrs-client:client id="ipsnImportStateService"
+                         serviceClass="com.newcore.orbps.service.api.IpsnImportStateService"
+                         address="http://${ws.client.orbps.esb.address}/ipsnImportStateService">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    <!--清单导入接口 -->
+    <jaxrs-client:client id="ipsnImpAppliForInterService"
+                         serviceClass="com.newcore.orbps.service.api.IpsnImpAppliForInterService"
+                         address="http://${ws.client.orbps.esb.address}/ipsnImpAppliForInterService">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    <!-- 订正服务客户端 -->
+        <jaxrs-client:client id="restfulinsurApplContentRevise"
+                         serviceClass="com.newcore.orbps.service.api.InsurApplContentRevise"
+                         address="http://${ws.client.orbps.esb.address}/InsurApplContentRevise">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+    <!-- 影像查询提交客户端 -->
+        <jaxrs-client:client id="imgApprovalService"
+                         serviceClass="com.newcore.orbps.service.api.ImgApprovalService"
+                         address="http://${ws.client.orbps.esb.address}/imgApprovalService">
+        <jaxrs-client:providers>
+            <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+    
+    <!-- 柜面调用 -->
+    <jaxrs-client:client id="branchService"
+		serviceClass="com.newcore.authority_support.service.api.BranchService"
+		address="http://${ws.client.ipbps.esb.address}/branchService">
+		<jaxrs-client:providers>
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+    <!-- 产品调用  险种查询-->
+    	<jaxrs-client:client id="resulpolicyQueryService"
+                         serviceClass="com.newcore.orbps.service.ipms.api.PolicyQueryService"
+                         address="http://${ws.client.ipms.esb.address}/policyQueryService">
+        <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+  <!--产品组调用  子险种查询概要-->
+	<jaxrs-client:client id="resulsubPolicyService"
+		serviceClass="com.newcore.orbps.service.ipms.api.SubPolicyService"
+		address="http://${ws.client.ipms.esb.address}/subPolicyService">
+		<jaxrs-client:providers>
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+    
+        <!-- 保单辅助调用  销售员查询-->
+	<jaxrs-client:client id="resulsalesmanInfoService"
+                         serviceClass="com.newcore.orbps.service.pcms.api.SalesmanInfoService"
+                         address="http://${ws.client.pcms.esb.address}/salesmanInfoService">
+        <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>
+    
+          <!-- 保单辅助调用  网点查询 -->
+	<jaxrs-client:client id="resulwebsiteInfoService"
+                         serviceClass="com.newcore.orbps.service.pcms.api.WebsiteInfoService"
+                         address="http://${ws.client.pcms.esb.address}/websiteInfoService">
+        <jaxrs-client:providers>
+           <bean class="com.halo.core.fastjson.support.FastJsonProvider"/>
+        </jaxrs-client:providers>
+    </jaxrs-client:client>	
+    
+    <jaxrs-client:client id="insurApplBackServiceClient"
+		serviceClass="com.newcore.orbps.service.api.InsurApplBackService"
+		address="http://${ws.client.orbps.esb.address}/insurApplBackService">
+		<jaxrs-client:providers>					   
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+    <!--人工审批查询  -->
+    <jaxrs-client:client id="commonQueryService"
+		serviceClass="com.newcore.orbps.service.api.CommonQueryService"
+		address="http://${ws.client.orbps.esb.address}/commonQueryService">
+		<jaxrs-client:providers>					   
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+    
+    <!-- 清单文件导出 -->
+    <jaxrs-client:client id="insuredFileCreatService"
+		serviceClass="com.newcore.orbps.service.api.InsuredFileCreatService"
+		address="http://${ws.client.orbps.esb.address}/insuredFileCreatService">
+		<jaxrs-client:providers>
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+	
+	<!-- 批作业控制服务 -->
+    <jaxrs-client:client id="batchJobControlService"
+		serviceClass="com.newcore.orbps.service.api.BatchJobControlService"
+		address="http://${ws.client.orbps.esb.address}/batchJobControlService">
+		<jaxrs-client:providers>
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+    
+    <!-- 影像服务-->
+    <jaxrs-client:client id="cmsAppUrlService"
+        serviceClass="com.newcore.cms.service.api.CMSAppUrlService"
+        address="http://${ws.client.ims.esb.address}/getCMSAppUrl">
+        <jaxrs-client:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+        </jaxrs-client:providers>
+    </jaxrs-client:client>  
+    
+   	<!-- 法人开户 -->
+	<jaxrs-client:client id="restfulCreateGrpCstomerAcountService"
+		serviceClass="com.newcore.orbps.service.cmds.api.CreateGrpCstomerAcountService"
+		address="http://${ws.client.cmds.esb.address}/CreateGrpCstomerAcount">
+		<jaxrs-client:providers>
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+	<jaxrs-client:client id="polNatureService"
+                  serviceClass="com.newcore.orbps.service.api.PolNatureService"
+                  address="http://${ws.client.orbps.esb.address}/polNatureService">
+    	<jaxrs-client:providers>
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+    </jaxrs-client:client>
+	<jaxws:client id="uniQueryWebServicePortType"
+                  serviceClass="com.newcore.orbps.service.cmds.api.UniQueryWebServicePortType"    
+                  address="http://10.31.22.126:8080/SOA/CMDS/UniQueryWebService" /> 
+	
+    <bean id="readbusiprdcodeconfig"
+        class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:*.properties</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="propertyConfigurer"
+        class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="properties" ref="readbusiprdcodeconfig" />
+    </bean>
+    
+    <!-- 查询保单是否生效 -->
+    <jaxrs-client:client id="insurApplOperUtilsService"
+		serviceClass="com.newcore.orbps.service.api.InsurApplOperUtilsService"
+		address="http://${ws.client.orbps.esb.address}/insurApplOperUtilsService">
+		<jaxrs-client:providers>
+			<bean class="com.halo.core.fastjson.support.FastJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+     
+</beans>

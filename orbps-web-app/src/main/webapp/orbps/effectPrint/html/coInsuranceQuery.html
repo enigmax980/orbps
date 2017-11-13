@@ -1,0 +1,130 @@
+	
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="profile-content">
+		<div class="portlet light">
+			<div class="portlet-title">
+				<div class="caption caption-md" >
+					<i class="icon-globe theme-font hide"></i> <span
+						class="caption-subject font-black-madison bold uppercase"
+					    style="margin-left: 15px">首席共保查询打印界面</span>
+				</div>
+				<div class="tools"></div>
+			</div>
+
+			<div class="portlet-body">
+				<div class="row">	
+								
+					<div class="portlet light">
+						<div class="portlet-body">
+							<div class="row">				
+						    			
+								<form class="form-horizontal" id="applicantSaveForm"
+									name="applicantSaveForm" method="post">
+
+									<div class="col-md-12 margin-bottom-10 form-group">
+										<label class="control-label col-md-2" for="agreementNo"> 共保协议号 </label>
+										<div class="col-md-2">
+											<div class="input-icon right">
+												<i class="fa"></i> <input class="form-control input-small"
+													type="text" name="agreementNo" id="agreementNo" />
+											</div>
+										</div>
+
+										<label class="control-label col-md-2" for="applNo"> 投保单号 </label>
+										<div class="col-md-2">
+											<div class="input-icon right">
+												<i class="fa"></i> <input class="form-control input-small"
+													type="text" name="applNo" id="applNo" />
+											</div>
+										</div>											
+										
+										<label class="control-label col-md-2" for="branchNo"> 机构号 </label>
+										<div class="col-md-2">
+											<div class="input-icon right">
+												<i class="fa"></i> <input class="form-control input-small"
+													type="text" name="branchNo" id="branchNo" />
+											</div>
+										</div>												
+									</div>											
+														
+									<div class="col-md-12 margin-bottom-10 form-group">				
+										<label class="control-label col-md-2" for="bgDate"> 起始日期 </label>
+										<div class="col-md-2">
+											<div id="1" class="input-group input-small date date-picker"
+												data-date-format="yyyy-mm-dd">
+												<input type="text" id='bgDate' name='bgDate'
+													placeholder="请选择起始日期..." class="form-control" maxlength="25"
+													size="20" /> <span class="input-group-btn">
+													<button class="btn default" type="button">
+														<i class="fa fa-calendar"></i>
+													</button>
+												</span>
+											</div>
+										</div>											
+
+										<label class="control-label col-md-2" for="edDate"> 截止日期 </label>
+										<div class="col-md-2">
+											<div id="1" class="input-group input-small date date-picker"
+												data-date-format="yyyy-mm-dd">
+												<input type="text" id='edDate' name='edDate'
+													placeholder="请选择截止日期..." class="form-control" maxlength="25"
+													size="20" /> <span class="input-group-btn">
+													<button class="btn default" type="button">
+														<i class="fa fa-calendar"></i>
+													</button>
+												</span>
+											</div>
+										</div>	
+
+										<div class="form-group" align="center">
+											<input type="button" id="query" class="btn btn-sm blue" value="查&nbsp;询" /> 
+										</div>																																														
+									</div>
+
+								</form>
+						    </div>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<table id='queryListTab' class="lion-datagrids table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+							    	<th data-options="field:'inp'" width="2%" align="center"><input type="checkbox"></th>
+							        <th data-options="field:'no'" width="3%">序号</th>
+							        <th data-options="field:'agreementNo'" width="3%">共保协议号</th>
+							        <th data-options="field:'applNo'" width="3%">投保单号</th>
+							        <th data-options="field:'branchNo'" width="3%">机构号</th>
+							        <th data-options="field:'bgDate'" width="3%">起始日期</th>
+							        <th data-options="field:'edDate'" width="3%">截止日期</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="portlet light">
+						<div class="portlet-body">
+							<div class="row">
+								<div class="col-md-12 margin-bottom-10">								
+								    <label class="control-label col-md-2" for="all_select" align="right"> 
+								    	<input name="allSelect" type="checkbox" value="allChoose"/>全选
+							       	</label>	
+
+									<div class="form-group" align="center">
+										<input type="button" id="export" class="btn btn-sm blue" value="清&nbsp;单&nbsp;导&nbsp;出" />
+										<input type="button" id="detail" class="btn btn-sm blue" value="查&nbsp;看&nbsp;详&nbsp;情" /> 
+										<input type="button" id="preview" class="btn btn-sm blue" value="预&nbsp;览" />
+										<input type="button" id="print" class="btn btn-sm blue" value="打&nbsp;印" />
+									</div>									       						       																								
+	    						</div>
+							</div>
+						</div>	
+					</div>
+					
+				</div>
+			</div>
+		</div>	
+	</div>
+									
+</body>

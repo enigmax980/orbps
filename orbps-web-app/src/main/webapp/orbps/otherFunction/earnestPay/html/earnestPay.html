@@ -1,0 +1,213 @@
+<script src="/orbps/orbps/otherFunction/earnestPay/js/earnestPay.js"
+	type="text/javascript"></script>
+<script src="/orbps/orbps/public/js/publicValidate.js"
+	type="text/javascript"></script>
+<script src="/orbps/orbps/public/js/publicSearch.js"
+	type="text/javascript"></script>
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="portlet light" id="testDiv">
+		<div class="portlet-body">
+			<div class="row">
+				<div class="portlet box default">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-gift"></i>暂交费支取
+						</div>
+						<div class="tools"></div>
+					</div>
+					<div>&nbsp;</div>
+					<div class="row">
+						<label class="checkbox-inline col-md-3"> <input
+							type="radio" class="radio col-md-3" id="grpRad" name="radGrp"
+							checked="true" />&nbsp;团体
+						</label> <label class="checkbox-inline col-md-3"> <input
+							type="radio" class="radio col-md-3" id="perRad" name="radGrp" />&nbsp;个人
+						</label>
+					</div>
+					<form class="form-horizontal" name="applInfoForm" id="applInfoForm"
+						method="get">
+						<div class="portlet-body">
+							<div class="form-group">
+								<label class="control-label col-md-2"> 投保单号 <span
+									style="color: red">*</span></label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="applNo" id="applNo" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 被保人姓名</label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="ipsnName" id="ipsnName" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 被保人证件类型 </label>
+								<div class="col-md-2">
+									<select id="ipsnIdType" name="ipsnIdType"
+										placeholder="请选择被保人证件类型..."
+										class="lion-combo form-control select2 input-small"
+										data-valueField='key' data-textField='description'
+										data-URL="web/dict/ID_TYPE_01"
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 被保人证件号码 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="ipsnIdNo" id="ipsnIdNo" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 被保人性别 </label>
+								<div class="col-md-2">
+									<select id="ipsnIdSex" name="ipsnIdSex" placeholder="请输入性别..."
+										class="lion-combo form-control select2 input-small"
+										data-valueField='key' data-textField='description'
+										data-URL="/orbps/web/dict/SEX" data-isconnect="true"
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 被保人出生日期 </label>
+								<div class="col-md-2">
+									<div id="1" class="input-group input-small date date-picker"
+										data-date-format="yyyy-mm-dd" data-date-end-date="+0d">
+										<input type="text" id='birthDate' name='birthDate'
+											placeholder="请选择出生日期..." class="form-control" maxlength="25"
+											size="20" /> <span class="input-group-btn">
+											<button id='birthDates' class="btn default" type="button">
+												<i class="fa fa-calendar"></i>
+											</button>
+										</span>
+									</div>
+								</div>
+								<div id="grpInfo" calss="col-md-4">
+									<label class="control-label col-md-2"> 单位名称</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="grpName" id="grpName" />
+										</div>
+									</div>
+								</div>
+								<div id="payInfoBtn" class="col-md-4">
+									<div class="col-md-3">&nbsp;</div>
+									<button type="button" class="btn gray" id="btnPayGrpQuery">
+										<i class="glyphicon glyphicon-link"></i>&nbsp;获取收费组信息
+									</button>
+								</div>
+							</div>
+							<div id="payInfo" class="form-group">
+								<div class="col-md-12">
+									<table
+										class="lion-datagrids table table-striped table-bordered table-hover"
+										id="chargePayGroupInfoTable" data-singleselect="false"
+										data-loadUrl="/orbps/web/orbps/otherfunction/earnestPay/payGrpInfoSearch"
+										data-checkbox="true" data-pageSize="3" data-loading="false">
+										<thead>
+											<tr>
+												<th class="table-checkbox" data-field="applId"
+													data-checkbox="true"><input type="checkbox"
+													class="group-checkable" /></th>
+												<th data-field='groupNo'>组号</th>
+												<th data-field='groupName'>组名</th>
+												<th data-field='num'>人数</th>
+												<th data-field='moneyinType'>交费形式</th>
+												<th data-field='bankCode'>开户银行</th>
+												<th data-field='bankName'>开户名称</th>
+												<th data-field='bankAccNo'>银行帐号</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td colspan="8" align="center">无记录</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal" name="accInfoForm" id="accInfoForm"
+						method="get">
+						<div class="portlet-body">
+							<div class="form-group">
+								<div class="col-md-12">
+									<div class="table-scrollable">
+										<table id="accInfoTable"
+											class="lion-editDatagrids table dataTable table-bordered table-striped"
+											data-paginate="true"
+											data-loadurl="/orbps/web/orbps/otherfunction/earnestPay/accInfoSearch"
+											data-pagesize="3" data-edit="true"
+											data-callbackurl="/orbps/orbps/otherFunction/earnestPay/json/success.json"
+											data-pagecount="3,5,10,15,20,30,50" data-loading="false"
+											data-issort="false">
+											<thead>
+												<tr>
+													<th width="1px" data-checkboxs="true" data-field="applId"
+														id="applId"></th>
+													<th width="70px"
+														data-type='{"type":"input","id":"applNo" ,"name":"applNo"}'
+														data-field="applNo" data-sortDir="desc">投保单号</th>
+													<th width="70px"
+														data-type='{"type":"input","id":"accNo" ,"name":"accNo"}'
+														data-field="accNo" data-sortDir="desc">账户</th>
+													<th width="50px"
+														data-type='{"type":"input","id":"accType" ,"name":"accType"}'
+														data-field="accType">账户所属人类别</th>
+													<th width="50px"
+														data-type='{"type":"input","id":"accPersonNo" ,"name":"accPersonNo"}'
+														data-field="accPersonNo">账户所属人序号</th>
+													<th width="50px"
+														data-type='{"type":"input","id":"balance" ,"name":"balance"}'
+														data-field="balance">余额</th>
+													<th width="50px"
+														data-type='{"type":"input","id":"payAmount" ,"name":"payAmount"}'
+														data-field="payAmount">支取金额</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td colspan="7" align="center">无记录</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="form-group" align="center">
+								<label class="control-label col-md-2"> 账户总余额</label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="sumAmount" id="sumAmount" readOnly="true" />
+									</div>
+								</div>
+								<label class="control-label col-md-3"> 是否全部支取 <span
+									style="color: red">*</span></label>
+								<div class="col-md-2">
+									<select id="payAllFlag" name="payAllFlag"
+										placeholder="选择是否全部支取..."
+										class="lion-combo form-control select2 input-small"
+										data-valueField='key' data-textField='description'
+										data-URL="/orbps/web/dict/YES_NO_FLAG" data-isconnect="true"
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<button type="button" class="btn gray" id="btnAccInfoQuery">
+									<i class="glyphicon glyphicon-link"></i>&nbsp;获取账户信息
+								</button>
+								<button type="button" class="btn gray" id="btnSubmit">
+									<i class="glyphicon glyphicon-circle-arrow-right"></i>&nbsp;提交
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,58 @@
+ORBPSServiceapp:
+  scale: 1
+  health_check:
+    port: 9002
+    interval: 60000
+    initializing_timeout: 180000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 60000
+    healthy_threshold: 2
+ORBPSWebapp:
+  scale: 1
+  health_check:
+    port: 9001
+    interval: 60000
+    initializing_timeout: 180000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 60000
+    healthy_threshold: 2
+PinpointCollector:
+  external_ips:
+  - 10.31.31.129
+Esb:
+  external_ips:
+  - 10.253.129.63
+ORBPSBatchapp:
+  scale: 1
+  health_check:
+    port: 9004
+    interval: 60000
+    initializing_timeout: 180000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 60000
+    healthy_threshold: 2
+orbps-web-app-logs:
+  scale: 1
+ORBPSResources:
+  scale: 1
+  health_check:
+    port: 80
+    interval: 2000
+    initializing_timeout: 60000
+    unhealthy_threshold: 3
+    strategy: recreate
+    healthy_threshold: 2
+    response_timeout: 2000
+orbps-serviceapp-logs:
+  scale: 1
+ORBPSDB:
+  external_ips:
+  - 10.253.128.204
+orbps-batch-app-logs:
+  scale: 1
+ORBPSFtp:
+  external_ips:
+  - 10.31.31.73

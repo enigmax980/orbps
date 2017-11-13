@@ -1,0 +1,184 @@
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i>规则基本信息
+		</div>
+		<div class="tools"></div>
+	</div>
+	<div class="portlet-body">
+		<div class="form-group">
+			<label class="control-label col-md-2"> 管理机构号 </label>
+			<div class="col-md-2">
+				<div class="input-icon right">
+					<i class="fa"></i> <input class="form-control input-small"
+						type="text" name="agreeBranchNo" id="agreeBranchNo" />
+				</div>
+			</div>
+			<label class="control-label col-md-2"> 单证类型 </label>
+			<div class="col-md-2">
+				<select id="documentType" name="documentType"
+					placeholder="请选择单证类型..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='codeValue' data-textField='billType'
+					data-URL="example/datagrid/jc-work/json/sendType.json">
+				</select>
+			</div>
+			<label class="control-label col-md-2"> 场景 </label>
+			<div class="col-md-2">
+				<select id="scene" name="scene" placeholder="请选择场景..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='codeValue' data-textField='scene'
+					data-URL="example/datagrid/jc-work/json/sendType.json">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"> 合同性质 </label>
+			<div class="col-md-2">
+				<select id="contractNature" name="contractNature"
+					placeholder="请选择合同性质..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='codeValue' data-textField='contractType'
+					data-URL="example/datagrid/jc-work/json/sendType.json">
+				</select>
+			</div>
+			<label class="control-label col-md-2"> 送达方式 </label>
+			<div class="col-md-2">
+				<select id="serviceMode" name="serviceMode"
+					placeholder="请选择送达方式..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='codeValue' data-textField='sendType'
+					data-URL="example/datagrid/jc-work/json/sendType.json">
+				</select>
+			</div>
+			<label class="control-label col-md-2"> 签收方式 </label>
+			<div class="col-md-2">
+				<select id="signWay" name="signWay" placeholder="请选择签收方式..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='codeValue' data-textField='signType'
+					data-URL="example/datagrid/jc-work/json/sendType.json">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"> 核销方式 </label>
+			<div class="col-md-2">
+				<select id="verificationMode" name="verificationMode"
+					placeholder="请选择核销方式..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='codeValue' data-textField='checkType'
+					data-URL="example/datagrid/jc-work/json/sendType.json">
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 规则状态信息 -->
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i>规则状态信息
+		</div>
+		<div class="tools"></div>
+	</div>
+	<div class="portlet-body">
+		<div class="form-group">
+			<label class="control-label col-md-2"> 启用日期 </label>
+			<div class="col-md-2">
+				<div id="1" class="input-group input-small date date-picker"
+					data-date-format="yyyy-mm-dd">
+					<input type="text" id='enableDate' name="enableDate"
+						placeholder="启用日期..." class="form-control" maxlength="25"
+						size="20" /> <span class="input-group-btn">
+						<button class="btn default" type="button">
+							<i class="fa fa-calendar"></i>
+						</button>
+					</span>
+				</div>
+			</div>
+			<label class="control-label col-md-2"> 停用日期 </label>
+			<div class="col-md-2">
+				<div id="1" class="input-group input-small date date-picker"
+					data-date-format="yyyy-mm-dd">
+					<input type="text" id='stopDate' name="stopDate"
+						placeholder="停用日期..." class="form-control" maxlength="25"
+						size="20" /> <span class="input-group-btn">
+						<button class="btn default" type="button">
+							<i class="fa fa-calendar"></i>
+						</button>
+					</span>
+				</div>
+			</div>
+			<label class="control-label col-md-2"> 规则状态 </label>
+			<div class="col-md-2">
+				<select id="regularState" name="regularState"
+					placeholder="请输入规则状态..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="web/dict/CLA0044"
+					data-minimum-results-for-search="1"></select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"> 规则变化情况 </label>
+			<div class="col-md-2">
+				<input class="form-control input-small" type="text" size="200"
+					name="ruleChange" id="ruleChange">
+			</div>
+			<label class="control-label col-md-2"> 规则变化说明 </label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" size="122"
+					name="ruleChangeDes" id="ruleChangeDes" style="width: 92.5%" />
+			</div>
+
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"> 审核状态 </label>
+			<div class="col-md-2">
+				<input class="form-control input-small" type="text" size="200"
+					name="auditStatus" id="auditStatus">
+			</div>
+			<label class="control-label col-md-2"> 审核意见 </label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" size="122"
+					name="queryAuditOpinion" id="queryAuditOpinion"
+					style="width: 92.5%" />
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 操作轨迹 -->
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i>操作轨迹
+		</div>
+		<div class="tools"></div>
+	</div>
+	<div class="portlet-body">
+		<div class="form-group">
+			<label class="control-label col-md-2" for="nameZh">
+				&nbsp; </label>
+			<div class="col-md-8 margin-bottom-10">
+				<table class="table table-striped table-bordered table-hover"
+					id="sys_applinsured_list_tb" data-url="">
+					<thead>
+						<tr>
+							<th style="width: 10px;">&nbsp;</th>
+							<th style="width: 45px;">操作时间</th>
+							<th style="width: 45px;">操作类型</th>
+							<th style="width: 45px;" align="center">操作机构</th>
+							<th style="width: 55px;" align="center">操作人员工号</th>
+							<th style="width: 55px;" align="center">操作人员姓名</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="6" align="center">无记录</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

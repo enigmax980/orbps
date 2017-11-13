@@ -1,0 +1,39 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://service.bipp.sinosoft.com/xsd"
+	xmlns:buildBTS1="http://service.ws.bipp.sinosoft.com/buildBankTransServiceSoap11Binding"
+	xmlns:buildBTS2="http://service.ws.bipp.sinosoft.com/buildBankTransServiceSoap12Binding"
+	xmlns:extractBTS1="http://service.ws.bipp.sinosoft.com/extractBankTransServiceSoap11Binding"
+	xmlns:extractBTS2="http://service.ws.bipp.sinosoft.com/extractBankTransServiceSoap12Binding"
+	xmlns:receiveBTS1="http://service.ws.bipp.sinosoft.com/receiveFTPResultServiceSoap11Binding"
+	xmlns:ns1="http://www.e-chinalife.com/soa/"
+	xmlns:receiveBTS2="http://service.ws.bipp.sinosoft.com/receiveFTPResultServiceSoap12Binding">
+	<SOAP-ENV:Header>
+		<cl:HEADER xmlns:cl="http://www.e-chinalife.com/soa/">
+			<SVCNAME>BuildBankTransService</SVCNAME>
+			<SVCCODE>SLBPS-0047</SVCCODE>
+			<SVCVER>1.0</SVCVER>
+			<ORISYS>CBPS8</ORISYS>
+			<TRANTIME>2016-09-29 19:25:56,000</TRANTIME>
+			<TRANNO>20160929192556000275728</TRANNO>
+			<AUTH>
+				<BRANCHNO></BRANCHNO>
+				<USERID></USERID>
+				<TOKENID></TOKENID>
+			</AUTH>
+			<SECURITY>
+				<SIGNATURE></SIGNATURE>
+			</SECURITY>
+			<ROUTE>
+				<BRANCHNO>000000</BRANCHNO>
+				<DESTSYS>SLBPS</DESTSYS>
+			</ROUTE>
+		</cl:HEADER>
+	</SOAP-ENV:Header>
+	<SOAP-ENV:Body>
+		<ns1:build>
+			<ns1:msg>&lt;BODY&gt;&lt;REQUEST&gt;&lt;SERIALNUM&gt;1&lt;/SERIALNUM&gt;&lt;IO_MIOS_GEN_BANK_TRANS_SCXE&gt;&lt;SYS_NO&gt;9&lt;/SYS_NO&gt;&lt;BRANCH_NO&gt;120000&lt;/BRANCH_NO&gt;&lt;BANK_CODE&gt;&lt;/BANK_CODE&gt;&lt;RP_FLAG&gt;1&lt;/RP_FLAG&gt;&lt;FC_FLAG&gt;0&lt;/FC_FLAG&gt;&lt;SB_FLAG&gt;0&lt;/SB_FLAG&gt;&lt;PROC_DATE&gt;&lt;/PROC_DATE&gt;&lt;TRANS_SOURCE&gt;&lt;/TRANS_SOURCE&gt;&lt;TASK_ID&gt;540879&lt;/TASK_ID&gt;&lt;START_EXEC_TIME&gt;2016-09-29 19:25:56&lt;/START_EXEC_TIME&gt;&lt;/IO_MIOS_GEN_BANK_TRANS_SCXE&gt;&lt;/REQUEST&gt;&lt;/BODY&gt;
+			</ns1:msg>
+		</ns1:build>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

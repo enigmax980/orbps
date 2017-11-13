@@ -1,0 +1,116 @@
+<!-- 规则类型信息 -->
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i>规则类型信息
+		</div>
+		<div class="tools"></div>
+	</div>
+	<div class="portlet-body">
+		<div class="form-group">
+			<label class="control-label col-md-2"> 机构号</label>
+			<div class="col-md-2">
+				<div class="input-icon right">
+					<i class="fa"></i> <input class="form-control input-small"
+						type="text" name="branchNo" id="branchNo" />
+				</div>
+			</div>
+			<label class="control-label col-md-2"> 规则类型 </label>
+			<div class="col-md-2">
+				<select id="ruleType" name="ruleType" placeholder="请输入规则类型..."
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="web/dict/CLA0071"
+					data-minimum-results-for-search="1"></select>
+			</div>
+			<label class="control-label col-md-2"> 规则变化原因 </label>
+			<div class="col-md-2">
+				<div class="input-icon right">
+					<i class="fa"></i> <input class="form-control input-small"
+						type="text" name="ruleChangeCause" id="ruleChangeCause" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 规则基本信息 -->
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i>规则基本信息
+		</div>
+		<div class="tools"></div>
+	</div>
+	<div class="portlet-body">
+		<div class="form-group">
+			<label class="control-label col-md-2"> 销售渠道 </label>
+			<div class="col-md-2">
+				<select id="salesChannel" name="salesChannel" placeholder=""
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue' data-URL=""
+					data-minimum-results-for-search="1"></select>
+			</div>
+			<label class="control-label col-md-2"> 业务场景 </label>
+			<div class="col-md-2">
+				<select id="scene" name="scene" placeholder=""
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue' data-URL=""
+					data-minimum-results-for-search="1"></select>
+			</div>
+
+			<label class="control-label col-md-2"> 业务类型 </label>
+			<div class="col-md-2">
+				<select id="serviceType" name="serviceType" placeholder=""
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue' data-URL=""
+					data-minimum-results-for-search="1"></select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"> 保险期间 </label>
+			<div class="col-md-2">
+				<select id="insurDur" name="insurDur" placeholder=""
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue' data-URL=""
+					data-minimum-results-for-search="1"></select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2" for="informWay">
+				通知方式 </label> <label class="control-label"> <input
+				type="checkbox" name="" value="" />短信 <input type="checkbox"
+				name="" value="" />邮件 <input type="checkbox" name="" value="" />app账户
+				<input type="checkbox" name="" value="" />电子平台账户 <input
+				type="checkbox" name="" value="" />电话 <input type="checkbox"
+				name="" value="" />微信
+			</label>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"> 默认通知方式 </label>
+			<div class="col-md-2">
+				<select id="defaultInformWay" name="defaultInformWay"
+					placeholder=""
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue' data-URL=""
+					data-minimum-results-for-search="1"></select>
+			</div>
+			<label class="control-label col-md-2"> 通知类型 </label>
+			<div class="col-md-2">
+				<select id="notificationType" name="notificationType"
+					placeholder=""
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue' data-URL=""
+					data-minimum-results-for-search="1"></select>
+			</div>
+			<label class="control-label col-md-2"> 通知接收人 </label>
+			<div class="col-md-2">
+				<select id="notifyRecipient" name="notifyRecipient"
+					placeholder=""
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue' data-URL=""
+					data-minimum-results-for-search="1"></select>
+			</div>
+		</div>
+	</div>
+</div>
+

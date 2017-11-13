@@ -1,0 +1,167 @@
+	<script src="/orbps/orbps/otherFunction/contractQuery/js/commonAgreementQuery.js" 
+	type="text/javascript"></script>
+	<script src="/orbps/orbps/public/js/publicExport.js"
+    type="text/javascript"></script>
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="profile-content">
+		<div class="portlet light">
+			<div class="portlet-body">
+				<div class="row">
+					<form class="form-horizontal" id="ruleQueryForm"
+						name="ruleQueryForm" method="post">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 共保协议查询
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="form-group">
+								<label class="control-label col-md-2"> 投保单号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control"
+												type="text" name="applNo" id="applNo" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 协议号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control"
+												type="text" name="agreementNo" id="agreementNo" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 协议名称 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control"
+												type="text" name="agreementName" id="agreementName" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+								<label class="control-label col-md-2"> 协议审核起期 </label>
+									<div class="col-md-2">
+										 <div id="1" class="input-group date date-picker"
+                                            data-date-format="yyyy-mm-dd" >
+                                            <input type="text" id='inForceDate' name="inForceDate"
+                                                placeholder="审批操作起期..." class="form-control"
+                                                onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                onafterpaste="this.value=this.value.replace(/\D/g,'')" /> <span
+                                                class="input-group-btn">
+                                                <button id='applDateBtn' class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+									</div>
+								<label class="control-label col-md-2"> 协议审核止期 </label>
+									<div class="col-md-2">
+										 <div id="1" class="input-group date date-picker"
+                                            data-date-format="yyyy-mm-dd" >
+                                            <input type="text" id='termDate' name="termDate"
+                                                placeholder="审批操作止期..." class="form-control"
+                                                onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                onafterpaste="this.value=this.value.replace(/\D/g,'')" /> <span
+                                                class="input-group-btn">
+                                                <button id='applDateBtn' class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+									</div>
+								</div>
+								<div class="form-group">
+                                    <label class="control-label col-md-2"> 销售机构代码 </label>
+                                    <div class="col-md-2">
+                                        <div class="input-icon right">
+                                            <i class="fa"></i> <input class="form-control" type="text"
+                                                name="salesBranchNo" id="salesBranchNo" />
+                                        </div>
+                                    </div>
+                                    <label class="control-label col-md-2"> 是否包含下级机构</label>
+                                    <div class="col-md-2">
+                                        <select id="findSubBranchNoFlag" name="findSubBranchNoFlag"
+                                                placeholder="是否包含下级机构..."
+                                                class="lion-combo form-control select2" data-valueField='key'
+                                                data-textField='description'
+                                                data-isconnect="true"
+                                                data-URL="/orbps/web/dict/YES_NO_FLAG"
+                                                data-minimum-results-for-search="1"></select>
+                                    </div>
+                                </div>
+								<div class="row">
+								<div class="col-md-12">
+										<table
+											class="lion-datagrids table table-striped table-bordered table-hover"
+											id="commonAgreementTb" data-singleselect="true"
+											 data-loadUrl="/orbps/web/orbps/otherfunction/poolQuery/search" 
+											data-checkbox="true" data-pageSize="3" data-loading="true">
+											<thead>
+												<tr>
+													<th data-field="pclkBranchNo" width="100px">机构代码</th>
+													<th data-field="agreementNo" width="100px">协议号</th>
+													<th data-field="agreementName" width="100px">协议名称</th>
+													<th data-field="companyName" width="100px">本公司名称</th>
+													<th data-field="coinsurType" width="100px">本公司共保身份</th>
+													<th data-field="coinsurResponsePct" width="100px">本公司共保份额</th>
+													<th data-field="inForceDate" width="100px">协议有效起期</th>
+													<th data-field="termDate" width="100px">协议有效止期</th>
+													<th data-field="clerkNo" width="105px">协议创建人（操作）</th>
+													<th data-field="vclkNo" width="105px">协议审核人工号</th>
+													<th data-field="signDate" width="100px">协议审核日期</th>
+													<th data-field="remark" width="105px">备注</th>
+													<!-- <th data-field="pclkName" width="100px">协议基本信息</th>
+												    <th data-field="procDate" width="100px">共保承保信息</th>  -->
+												</tr>
+											</thead>
+										</table>
+									</div>
+								</div>
+								<div class="col-md-12">
+										<table id="commonAgreementTbs"  style = "display : none;">
+											<thead>
+												<tr>
+													<th data-field="pclkBranchNo" width="4%">机构代码</th>
+													<th data-field="agreementNo" width="8%">协议号</th>
+													<th data-field="agreementName" width="4%">协议名称</th>
+													<th data-field="companyName" width="5%">本公司名称</th>
+													<th data-field="coinsurType" width="5%">本公司共保身份</th>
+													<th data-field="coinsurResponsePct" width="4%">本公司共保份额</th>
+													<th data-field="inForceDate" width="8%">协议有效起期</th>
+													<th data-field="termDate" width="5%">协议有效止期</th>
+													<th data-field="clerkNo" width="5%">协议创建人（操作）</th>
+													<th data-field="vclkNo" width="105px">协议审核人工号</th>
+													<th data-field="signDate" width="5%">协议审核日期</th>
+													<th data-field="remark" width="105px">备注</th>
+													<!-- <th data-field="pclkName" width="6%">协议基本信息</th>
+												    <th data-field="procDate" width="4%">共保承保信息</th>  -->
+												</tr>
+											</thead>
+											<tbody></tbody>
+										</table>
+									</div>
+							</div>
+						</div>
+						<div class="form-group" align="center">
+							<button type="button" class="btn gray" id="btnQuery">
+											<i class="glyphicon glyphicon-search"></i>&nbsp;查&nbsp;询
+										</button>
+									<button type="button" class="btn gray" id="btnExport">
+                           			 		<i class="glyphicon glyphicon-import"></i>&nbsp;导出清单
+                        				</button>
+						</div>
+				    </form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

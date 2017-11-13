@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>com.newcore.orbps</groupId>
+    <artifactId>orbps-parent</artifactId>
+    <version>1.0.0_P8-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <description>orbps-parent</description>
+
+    <modules>
+        <module>orbps-model</module>
+        <module>orbps-service-api</module>
+        <module>orbps-service-app</module>
+        <module>orbps-web-app</module>
+        <module>orbps-batch-app</module>
+        <module>orbps-utils</module>
+        <module>orbps-db</module>
+    </modules>
+
+    <properties>
+        <!-- 统一版本号 -->
+        <master_version>1.0.0_P8-SNAPSHOT</master_version>
+        <!-- 统一字符集 -->
+        <encoding_type>UTF-8</encoding_type>
+        <!-- 所有工程中,对依赖的根组件(root jar)的版本维护 -->
+        <java_version>1.8</java_version>
+        <halo_version>coldnoodle.2.2.2-SNAPSHOT</halo_version>
+        <dict-support_version>global.3.0.0-SNAPSHOT</dict-support_version>
+        <dev_dict-support_version>global.3.0.0-SNAPSHOT</dev_dict-support_version>
+        <datagrid-support_version>3.0.0-SNAPSHOT</datagrid-support_version>
+        <fileload-support_version>3.0.0-SNAPSHOT</fileload-support_version>
+        <dasc-support_version>3.0.0-SNAPSHOT</dasc-support_version>
+        <header-support_version>3.0.0-SNAPSHOT</header-support_version>
+        <idemp-support_version>3.0.0-SNAPSHOT</idemp-support_version>
+        <cache-support_version>3.0.0-SNAPSHOT</cache-support_version>
+        <batch-trigger_version>3.0.0-SNAPSHOT</batch-trigger_version>
+        <auth-classic_version>3.0.0-SNAPSHOT</auth-classic_version>
+        <health-checker_version>3.0.0-SNAPSHOT</health-checker_version>
+
+        <authority-support_version>3.0.0-SNAPSHOT</authority-support_version>
+        <dbversion-checker_version>3.0.0-SNAPSHOT</dbversion-checker_version>
+        <session-router_version>3.0.0-SNAPSHOT</session-router_version>
+        <batch-admin_version>3.0.0-SNAPSHOT</batch-admin_version>
+        <cms-support_version>3.0.0-SNAPSHOT</cms-support_version>
+        <task-support_version>3.0.0-SNAPSHOT</task-support_version>
+        <message-support_version>3.0.0-SNAPSHOT</message-support_version>
+        <tsms-support_version>3.0.0-SNAPSHOT</tsms-support_version>
+
+        <servlet_version>3.1.0</servlet_version>
+        <spring_version>4.3.3.RELEASE</spring_version>
+        <oracle_driver_version>11.2.0.4.0</oracle_driver_version>
+        <junit_version>4.12</junit_version>
+        <mockito_version>2.1.0-RC.1</mockito_version>
+        <cms_support_version>2.1.0-SNAPSHOT</cms_support_version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.halo</groupId>
+            <artifactId>clic-suite</artifactId>
+            <version>${halo_version}</version>
+            <scope>provided</scope>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.newcore.business.supports</groupId>
+            <artifactId>dict-support</artifactId>
+            <version>${dict-support_version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.newcore.core.supports</groupId>
+            <artifactId>datagrid-support</artifactId>
+            <version>${datagrid-support_version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <encoding>${encoding_type}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>${java_version}</source>
+                    <target>${java_version}</target>
+                    <encoding>${encoding_type}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>newcore</id>
+            <name>newcore</name>
+            <url>http://10.31.58.211:8081/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>

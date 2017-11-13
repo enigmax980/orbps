@@ -1,0 +1,224 @@
+<head>
+<meta charset="utf-8">
+<title></title>
+
+<meta name="description" content="and Validation">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+	href="/web-content/branches/branch_1.0/web-content/resources/global/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/web-content/branches/branch_1.0/web-content/resources/global/plugins/font-awesome/css/font-awesome.min.css">
+
+<script src="/orbps/orbps/contractEntry/js/treegridDemo.js"
+	type="text/javascript"></script>
+
+</head>
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+ 	<div> 
+			<!-- PAGE CONTENT BEGINS -->
+			<hr>
+			<div class="step-content row-fluid position-relative"  
+				id="step-container">
+				<div class="row" >
+					<form class="form-horizontal" id="applicantSaveForm"
+						name="applicantSaveForm" method="post">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="col-md-12 margin-bottom-10 form-group">
+							<label class="control-label col-md-2" > 投保单号
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<i class="fa"></i> <input class="form-control input-small"
+										type="text" name="applNo" id="applNo" />
+								</div>
+							</div>
+							<label class="control-label col-md-2" > 汇交申请号
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<i class="fa"></i> <input class="form-control input-small"
+										type="text" name="sgApplNo" id="sgApplNo" />
+								</div>
+							</div>
+							<label class="control-label col-md-2" > 合同号
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<i class="fa"></i> <input class="form-control input-small"
+										type="text" name="cntrNo" id="cntrNo" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 margin-bottom-10 form-group">
+							<label class="control-label col-md-2" > 合同号组号
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<i class="fa"></i> <input class="form-control input-small"
+										type="text" name="cgNo" id="cgNo" />
+								</div>
+							</div>
+							<label class="control-label col-md-2" > 汇交事件号
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<i class="fa"></i> <input class="form-control input-small"
+										type="text" name="sgNo" id="sgNo" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 margin-bottom-10 form-group">
+							<label class="control-label col-md-2" for="mgBranchNo">
+								保单管理机构号
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<i class="fa"></i> <input class="form-control input-small"
+										type="text" name="mgBranchNo" id="mgBranchNo" />
+								</div>
+							</div>
+							<label class="control-label col-md-2" for="includeLowerBranch"> 是否包含下级机构
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<input type="checkbox" name="includeLowerBranch" id="includeLowerBranch">
+								</div>
+							</div>
+							<label class="control-label col-md-2" for="sendType"> 送达方式
+							</label>
+							<div class="col-md-2">
+								<select id="parameterCodeList" name="sel"  placeholder="请选择参数列表..."
+                				class="lion-combo form-control select2" data-valueField='codeValue'
+                				data-textField='sendType' data-URL="example/datagrid/jc-work/json/sendType.json">
+       							</select>
+       						</div>
+						</div>
+						<div class="col-md-12 margin-bottom-10 form-group">
+							<label class="control-label col-md-2" for="bgPrintDate"> 打印起始日期
+							</label>
+							<div class="col-md-2">
+								<div id="1" class="input-group input-small date date-picker"
+									data-date-format="yyyy-mm-dd hh-mm-ss">
+									<input type="text" id='bgPrintDate' name="bgPrintDate"
+										placeholder="打印起始日期..." class="form-control" maxlength="25"
+										size="20" /> <span class="input-group-btn">
+										<button class="btn default" type="button">
+											<i class="fa fa-calendar"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+							<label class="control-label col-md-2" for="endPrintDate"> 打印结束日期
+							</label>
+							<div class="col-md-2">
+								<div id="1" class="input-group input-small date date-picker"
+									data-date-format="yyyy-mm-dd hh-mm-ss">
+									<input type="text" id='endPrintDate' name="endPrintDate"
+										placeholder="打印结束日期..." class="form-control" maxlength="25"
+										size="20" /> <span class="input-group-btn">
+										<button class="btn default" type="button">
+											<i class="fa fa-calendar"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+							<label class="control-label col-md-2" for="transferState"> 交接状态
+							</label>
+							<div class="col-md-2">
+								<select id="parameterCodeList" name="transferState"  placeholder="请选择参数列表..."
+                				class="lion-combo form-control select2" data-valueField='codeValue'
+                				data-textField='transferState' data-URL="example/datagrid/jc-work/json/sendType.json">
+       							</select>
+       						</div>
+						</div>
+						<div class="col-md-12 margin-bottom-10 form-group">
+							<label class="control-label col-md-2" for="logisticsCompany"> 物流公司
+							</label>
+							<div class="col-md-2">
+								<select id="parameterCodeList" name="sel"  placeholder="请选择参数列表..."
+                				class="lion-combo form-control select2" data-valueField='codeValue'
+                				data-textField='logisticsCompany' data-URL="example/datagrid/jc-work/json/sendType.json">
+       							</select>
+       						</div>
+       						<label class="control-label col-md-2" > 物流单号
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<i class="fa"></i> <input class="form-control input-small"
+										type="text" name="bookingNo" id="bookingNo" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<table id='cntrListTab' class="lion-datagrids table table-striped table-bordered table-hover">
+							    <thead>
+							    <tr>
+							        <th data-options="field:'inp'" width="2%" align="center"><input type="checkbox"></th>
+							        <th data-options="field:'applNo'" width="8%" >投保单号/汇交申请号</th>
+							        <th data-options="field:'cntrNo'" width="10%">合同号/合同组号/汇交事件号</th>
+							        <th data-options="field:'applCompany'" width="10%">投保/汇交单位名称</th>
+							        <th data-options="field:'applName'" width="10%">投保/汇交人姓名</th>
+							        <th data-options="field:'salesName'" width="6%">销售人员姓名</th>
+							        <th data-options="field:'salesNo'" width="6%">销售人员工号</th>
+							        <th data-options="field:'printTime'" width="6%">打印日期</th>
+							        <th data-options="field:'sendType'" width="6%">送达方式</th>
+							        <th data-options="field:'bookingNo'" width="6%">物流单号</th>
+							        <th data-options="field:'logisticsCompany'" width="6%">物流公司</th>
+							        <th data-options="field:'transferName'" width="6%">交接人姓名</th>
+							        <th data-options="field:'transferState'" width="6%">交接状态</th>
+							        <th data-options="field:'transferTime'" width="6%">交接时间</th>
+							        <th data-options="field:'remark'" width="10%">备注</th>
+							    </tr>
+							    </thead>
+							</table>
+
+						</div>
+						<div class="col-md-12 margin-bottom-10">
+						<br><br>
+							<div class="form-group" align="center">
+								<input type="button" id="query" name="query" value="查&nbsp;询"  class="btn btn-sm yellow"/>
+								<input type="button" id="previous" name="previous" value="上&nbsp;一&nbsp;页"  class="btn btn-sm yellow"/>
+								<input type="button" id="next" name="next" value="下&nbsp;一&nbsp;页"  class="btn btn-sm yellow"/>
+								<input type="button" id="import" name="import" value="导&nbsp;出"  class="btn btn-sm yellow"/>
+								<input type="button" id="export" name="export" value="查&nbsp;看&nbsp;物&nbsp;流&nbsp;状&nbsp;态"  class="btn btn-sm yellow"/>
+							</div>
+						</div>
+						<div class="col-md-12 margin-bottom-10 form-group">
+							<label class="control-label col-md-2" for="logisticsCompany"> 物流公司
+							</label>
+							<div class="col-md-2">
+								<select id="parameterCodeList" name="logisticsCompany"  placeholder="请选择参数列表..."
+                				class="lion-combo form-control select2" data-valueField='codeValue'
+                				data-textField='logisticsCompany' data-URL="example/datagrid/jc-work/json/sendType.json">
+       							</select>
+       						</div>
+       						<label class="control-label col-md-2" > 物流单号
+							</label>
+							<div class="col-md-2">
+								<div class="input-icon right">
+									<i class="fa"></i> <input class="form-control input-small"
+										type="text" name="bookingNo" id="bookingNo" />
+								</div>
+							</div>
+							<div class="control-label col-md-2">
+								<input type="button" id="batchImport" name="batchImport" value="批&nbsp;量&nbsp;导&nbsp;入"  class="btn btn-sm yellow"/>
+							</div>
+							<div class="control-label col-md-1">	
+								<input type="button" id="grant" name="grant" value="发&nbsp;放"  class="btn btn-sm yellow"/>
+							</div>
+						</div>
+					</form>
+ 				</div>
+ 			</div>
+
+</div>
+
+	
+</body>

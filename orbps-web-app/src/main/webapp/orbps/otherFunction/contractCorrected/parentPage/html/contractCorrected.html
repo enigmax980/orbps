@@ -1,0 +1,149 @@
+<script
+	src="/orbps/orbps/otherFunction/contractCorrected/parentPage/js/contractCorrected.js"
+	type="text/javascript"></script>
+<script src="/orbps/orbps/public/js/publicValidate.js"
+	type="text/javascript"></script>
+<script src="/orbps/orbps/public/js/publicSearch.js"
+	type="text/javascript"></script>
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="portlet light" id="testDiv">
+		<div class="portlet-body">
+			<div class="row">
+				<form class="form-horizontal" name="reviseForm" id="reviseForm"
+					method="get">
+					<div class="portlet box default">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i>订正信息
+							</div>
+							<div class="tools"></div>
+						</div>
+						<div class="portlet-body">
+							<div class="form-group">
+								<label class="control-label col-md-2"> 投保单号</label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control"
+											type="text" name="correctApplNo" id="correctApplNo" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 契约形式 </label>
+								<div class="col-md-2">
+									<select id="correctcntrForm" name="correctcntrForm"
+										placeholder="请选择契约形式..."
+										class="lion-combo form-control select2 input-small"
+										data-valueField='key' data-textField='description'
+										data-URL="web/dict/CNTR_TYPE"
+										data-minimum-results-for-search="1"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 销售渠道 </label>
+								<div class="col-md-2">
+									<select id="correctSalesChannel" name="correctSalesChannel"
+										placeholder="请选择销售渠道..."
+										class="lion-combo form-control select2 input-small"
+										data-valueField='key' data-textField='description'
+										data-URL="web/dict/PRD_SALES_CHANNEL"
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 销售机构 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="correctSalesBranchNo"
+											id="correctSalesBranchNo" />
+									</div>
+								</div>
+								<label class="control-label col-md-2"> 销售员代码 </label>
+								<div class="col-md-2">
+									<div class="input-icon right">
+										<i class="fa"></i> <input class="form-control input-small"
+											type="text" name="correctSaleCode" id="correctSaleCode" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 投保日期</label>
+									<div class="col-md-1">
+										<div id="1" class="input-group input-small date date-picker"
+											data-date-format="yyyy-mm-dd">
+											<input type="text" id='insureStarDate' name="insureStarDate"
+												placeholder="选择投保开始日期..." class="form-control" /> <span
+												class="input-group-btn">
+												<button class="btn default" type="button">
+													<i class="fa fa-calendar"></i>
+												</button>
+											</span>
+										</div>
+									</div>
+									<label class="control-label col-md-1"> 至 </label>
+									<div class="col-md-1">
+										<div id="1" class="input-group input-small date date-picker"
+											data-date-format="yyyy-mm-dd">
+											<input type="text" id='insureEndDate' name="insureEndDate"
+												placeholder="选择投保结束日期..." class="form-control" /> <span
+												class="input-group-btn">
+												<button class="btn default" type="button">
+													<i class="fa fa-calendar"></i>
+												</button>
+											</span>
+										</div>
+									</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<table
+										class="lion-datagrids table table-striped table-bordered table-hover"
+										id="contractlist" data-singleselect="true"
+										data-loadUrl="/orbps/web/orbps/otherfunction/Correction/correctquery"
+										data-checkbox="true" data-pageSize="3" data-loading="false">
+										<thead>
+											<tr>
+												<th class="table-checkbox" data-field="applId"
+													data-checkbox="true"><input type="checkbox"
+													class="group-checkable" /></th>
+												<th data-field='applNo'>投保单号</th>
+												<th data-field='applDate'>投保申请日期</th>
+												<th data-field='mgrBranchNo'>机构号</th>
+												<th data-field='postName'>岗位</th>
+												<th data-field='cntrForm'>契约形式</th>
+												<th data-field='currentOperatorNum'>当前操作员机构</th>
+												<th data-field='currentOperatorCode'>当前操作员代码</th>
+												<th data-field='currentOperatorName'>当前操作员姓名</th>
+												<th data-field='procTime'>处理时间</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td colspan="10" align="center">无记录</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div class="row">
+									<div class="col-md-12" align="center">
+										<input type="button" id="query" name="query"
+											value="&nbsp;查&nbsp;询" class="btn btn-sm yellow" /> <input
+											type="button" id="revise" name="revise"
+											value="&nbsp;订&nbsp;正" class="btn btn-sm yellow" /> <input
+											type="button" id="backBtn" name="backBtn"
+											value="&nbsp;回&nbsp;退" class="btn btn-sm yellow" /> <input
+											type="button" id="clear" name="clear" value="&nbsp;清&nbsp;空"
+											class="btn btn-sm yellow" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal fade" id="btnModel1" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true"
+				data-backdrop="static" data-keyboard="false"></div>
+		</div>
+	</div>
+</body>

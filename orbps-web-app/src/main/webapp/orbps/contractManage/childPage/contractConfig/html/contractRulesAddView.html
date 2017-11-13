@@ -1,0 +1,113 @@
+<!-- 合同构件配置规则添加界面 -->
+<script src="/orbps/orbps/contractManage/childPage/contractConfig/js/contractRuleAddView.js"
+	type="text/javascript"></script>
+		<!-- 规则基本信息 -->
+		<div class="portlet box green">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-gift"></i>规则基本信息
+				</div>
+				<div class="tools"></div>
+			</div>
+			<div class="portlet-body">
+				<div class="form-group">
+					<label class="control-label col-md-2" for="branchNo">
+						机构代码</label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input class="form-control input-small"
+								type="text" name="branchCode" id="branchCode" />
+						</div>
+					</div>
+					<label class="control-label col-md-2"> 销售渠道
+					</label>
+					<div class="col-md-2">
+						<select id="salesChannel" name="salesChannel"
+							placeholder="请选择销售渠道..."
+							class="lion-combo form-control select2 input-small"
+							data-valueField="key" data-textField="description"
+							data-URL="web/dict/BUSINESS_TYPE"
+							data-minimum-results-for-search="1"></select>
+					</div>
+					<label class="control-label col-md-2"> 业务场景
+					</label>
+					<div class="col-md-2">
+						<select id="bsScenario" name="bsScenario"
+							placeholder="请输入业务场景..."
+							class="lion-combo form-control select2  input-small"
+							data-valueField="key" data-textField="description"
+							data-URL="web/dict/BUSINESS_TYPE"
+							data-minimum-results-for-search="1"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-2"> 险种代码
+					</label>
+					<div class="col-md-2">
+						<select id="busiPrdCode" name="busiPrdCode"
+							placeholder="请输入险种代码..."
+							class="lion-combo form-control select2  input-small"
+							data-valueField="key" data-textField="description"
+							data-URL="web/dict/BUSINESS_TYPE"
+							data-minimum-results-for-search="1"></select>
+					</div>
+					<label class="control-label col-md-2" for="nameZh"> 合同类型
+					</label>
+					<div class="col-md-2">
+						<select id="cntrType" name="cntrType"
+							placeholder="请输入合同类型..."
+							class="lion-combo form-control select2  input-small"
+							data-valueField="key" data-textField="description"
+							data-URL="web/dict/BUSINESS_TYPE"
+							data-minimum-results-for-search="1"></select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="portlet box green">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-gift"></i>构件基本信息
+				</div>
+				<div class="tools"></div>
+			</div>
+			<div class="portlet-body">
+				<div class="row">
+					<div class="col-md-12 margin-bottom-10" id="toolbar">
+						<button id="btnAdd" 
+							class="btn btn-sm blue" >
+							<i class="fa fa-plus"></i>新增
+						</button>
+						<button id="btnDel"
+							class="btn btn-sm red">
+							<i class="fa fa-times"></i>删除
+						</button>
+					</div>
+					<div class="col-md-12">
+						<div class="table-scrollable">
+							<table id="cntrComponentList" class="lion-editDatagrids table dataTable table-bordered table-striped" data-paginate="true" data-loadurl="/orbps/web/orbps/search" data-pagesize="3" data-edit="true" data-callbackurl="/orbps/orbps/contractEntry/grpInsurAppl/json"  data-pagecount="3,5,10,15,20,30,50" data-loading="false">
+								<thead>
+									<th width="5px" data-checkboxs="true" data-field="applId"
+										id="no"></th>
+									<th width="45px"
+										data-type='{"type":"combox","name":"componentName","id":"componentName","key":"key","value":"description","url":""}'
+										data-field="componentName">构件名称</th>
+									<th width="45px"
+										data-type='{"type":"input","name":"componentNo","id":"componentNo"}'
+										data-field="componentNo">构件顺序</th>
+									<th width="55px"
+										data-type='{"type":"combox","name":"componentProperty","id":"componentProperty","key":"key","value":"description","url":""}'
+										data-field="componentProperty">构件属性</th>
+<!-- 									<th width="55px" -->
+<!-- 										data-type='{"type":"button","name":"componentTemplate","id":"componentTemplate","value":"上传"}' -->
+<!-- 										data-field="componentTemplate">构件模板</th> -->
+<!-- 									<th width="45px" -->
+<!-- 										data-type='{"type":"button","name":"componentPreview,"id":"componentPreview"}' -->
+<!-- 										data-field="componentPreview">预览</th> -->
+								</thead>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

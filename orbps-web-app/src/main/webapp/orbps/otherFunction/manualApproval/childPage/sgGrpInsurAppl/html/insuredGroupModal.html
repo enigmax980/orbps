@@ -1,0 +1,113 @@
+<script src="/orbps/orbps/contractEntry/sgGrpInsurAppl/js/insuredGroupModal.js"
+	type="text/javascript"></script>
+	
+<div class="modal-dialog" style="width:80%">
+	<div class="modal-content" align="center">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h4 class="modal-title" id="insuredGroupInfo">
+				<span>被保险人分组信息</span>
+			</h4>
+		</div>
+		<div class="row">
+			<div class="modal-body">
+				<form class="form-horizontal" name="sys_applinsured_list_tb"
+					id="sys_applinsured_list_tb" method="post">
+					<div class="col-md-12 margin-bottom-10">
+						<div class="table-scrollable">
+							<table
+								class="lion-datagrids table table-striped table-bordered table-hover"
+								id="insuredList" data-singleselect="true"
+								data-loadUrl="/example/web/example/search" data-checkbox="true"
+								data-pageSize="3" data-loading="false">
+								<thead>
+									<tr>
+										<th style="width: 10px;">&nbsp;</th>
+										<th data-feild="polName" style="width: 80px;">险种名称</th>
+										<th data-feild="groupNo" style="width: 80px;">组号</th>
+										<th data-feild="groupName" style="width: 80px;" align="center">组名</th>
+										<th data-feild="num" style="width: 80px;" align="center">人数</th>
+										<th data-feild="insureQuaPer" style="width: 80px;" align="center">每人保额</th>
+										<th data-feild="insureFeePer" style="width: 80px;" align="center">每人保费</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+					<div class="col-md-12 margin-bottom-10">
+						<label class="control-label col-md-3">险种代码</label>
+						<div class="col-md-2">
+							<input class="form-control input-small" type="text" size="30"
+								name="polCode" id="polCode" />
+						</div>
+						<label class="control-label col-md-3">险种名称</label>
+						<div class="col-md-2">
+							<input class="form-control input-small" type="text" size="30"
+								name="polName" id="polName" />
+						</div>
+					</div>
+					<div class="col-md-12 margin-bottom-10">
+						<label class="control-label col-md-3">组号</label>
+						<div class="col-md-2">
+							<input class="form-control input-small" type="text" size="30"
+								name="groupNo" id="groupNo" />
+	
+						</div>
+						<label class="control-label col-md-3">组名</label>
+						<div class="col-md-2">
+							<input class="form-control input-small" type="text" size="30"
+								name="groupName" id="groupName" />
+						</div>
+					</div>
+					<div class="col-md-12 margin-bottom-10">
+						<label class="control-label col-md-3">人数</label>
+						<div class="col-md-2">
+							<input class="form-control input-small" type="text" size="30"
+								name="num" id="num" />
+	
+						</div>
+						<label class="control-label col-md-3">医保标记</label>
+						<div class="col-md-2">
+							<select id="ipsnSss" name="ipsnSss" placeholder="选择医保标记..."
+								class="lion-combo form-control select2 input-small"
+								data-valueField='keyId' data-textField='nvalue'
+								data-URL="web/dict/SEX" data-minimum-results-for-search="1">
+							</select>
+						</div>
+					</div>
+					<div class="col-md-12 margin-bottom-10">
+						<label class="control-label col-md-3">每人保额</label>
+						<div class="col-md-2">
+							<input class="form-control input-small" type="text" size="30"
+								name="insureQuaPer" id="insureQuaPer" />
+						</div>
+						<label class="control-label col-md-3">每人保费</label>
+						<div class="col-md-2">
+							<select id="insureFeePer" name="insureFeePer"
+								placeholder="选择每人保费..."
+								class="lion-combo form-control select2 input-small"
+								data-valueField='keyId' data-textField='nvalue'
+								data-URL="web/dict/SEX" data-minimum-results-for-search="1">
+							</select>
+						</div>
+					</div>
+					<div class="col-md-12  margin-bottom-10" align="right">
+						<button type="button" class="btn btn-sm green" id="btnAdd">
+							<i class="fa fa-plus"></i>新增
+						</button>
+						<button type="button" class="btn btn-sm blue" id="btnEdit">
+							<i class="fa fa-edit"></i>修改
+						</button>
+						<button type="button" class="btn btn-sm yellow" id="btnClear">
+							<i class="fa fa-trash"></i>清空
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		</div>
+	</div>
+</div>

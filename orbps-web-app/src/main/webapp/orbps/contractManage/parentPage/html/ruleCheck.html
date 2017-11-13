@@ -1,0 +1,154 @@
+<script src="/orbps/orbps/contractManage/parentPage/js/ruleCheck.js"
+	type="text/javascript"></script>	
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="profile-content">
+		<div class="portlet light">
+			<div class="portlet-body">
+				<div class="row">
+					<form class="form-horizontal" id="approvalQueryForm"
+						name="approvalQueryForm" method="post">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="portlet box green">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 审核查询
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="form-group">
+									<label class="control-label col-md-2"> 管理机构号
+									</label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="mgrBranchNo" id="mgrBranchNo" />
+										</div>
+									</div>
+									
+									<label class="control-label col-md-2"> 险种名称
+                                    </label>
+                                    <div class="col-md-2">
+                                        <div class="input-icon right">
+                                            <i class="fa"></i> <input class="form-control input-small"
+                                                type="text" name="busiPrdCode" id="busiPrdCode" />
+                                        </div>
+                                    </div>
+									
+									<label class="control-label col-md-2"> 规则类型 </label>
+                                    <div class="col-md-2">
+                                        <select id="ruleType" name="ruleType" placeholder="请选择销售渠道..."
+                                            class="lion-combo form-control select2 input-small"
+                                            data-valueField="key" data-textField="description"
+                                            data-URL="web/dict/BUSINESS_TYPE"
+                                            data-minimum-results-for-search="1"></select>
+                                    </div>
+		       						</div>
+		       						<div class="form-group">
+		       						<label class="control-label col-md-2"> 审核状态
+									</label>
+									<div class="col-md-2">
+                                        <select id="ruleType" name="ruleState" placeholder="请选择销售渠道..."
+                                            class="lion-combo form-control select2 input-small"
+                                            data-valueField="key" data-textField="description"
+                                            data-URL="web/dict/BUSINESS_TYPE"
+                                            data-minimum-results-for-search="1"></select>
+                                    </div>
+                                    
+                                    <label class="control-label col-md-2">营销员姓名
+                                    </label>
+                                    <div class="col-md-2">
+                                        <div class="input-icon right">
+                                            <i class="fa"></i> <input class="form-control input-small"
+                                                type="text" name="saleName" id="saleName" />
+                                        </div>
+                                    </div>
+                                    <label class="control-label col-md-2"> 险种信息
+                                    </label>
+                                    <div class="col-md-2">
+                                        <select id="busiPrdInfo" name="busiPrdInfo"
+                                            placeholder="请选择险种信息"
+                                            class="lion-combo form-control select2 input-small"
+                                            data-valueField="key" data-textField="description"
+                                            data-URL="web/dict/BUSINESS_TYPE"
+                                            data-minimum-results-for-search="1"></select>
+                                    </div>
+                                    </div>
+                                </div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="table-scrollable">
+										    <table
+                                            class="lion-datagrids table table-striped table-bordered table-hover"
+                                            id="apTaskListTab" data-singleselect="true"
+                                            data-loadUrl="/orbps/web/orbps/contractManage/rule/searchCheck"
+                                            data-checkbox="true" data-pageSize="3" data-loading="false">
+												<thead>
+												    <tr>
+												        <th data-field="applId" style="width: 2px;">序号</th>
+												        <th data-field="mgBranchNo" style="width: 50px;">管理机构号</th>
+												        <th data-field="ruleType" style="width: 50px;">规则类型</th>
+												        <th data-field="ruleName" style="width: 50px;">规则名称</th>
+												        <th data-field="submitBranch" style="width: 50px;">提交人员机构</th>
+												        <th data-field="submitName" style="width: 50px;">提交人员姓名</th>
+												        <th data-field="submitNo" style="width: 50px;">提交人员工号</th>
+												        <th data-field="submitDate" style="width: 50px;">提交时间</th>
+												    </tr>
+									    		</thead>
+									    		<tbody>
+													<tr>
+														<td colspan="8" align="center">无记录</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+						<div class="col-md-12" align="center" id="option">
+							<div class="col-md-5">
+							</div>
+							<div class="col-md-3">
+								<button type="button" class="btn gray" id="btnQuery">
+									<i class="glyphicon glyphicon-search"></i>&nbsp;查&nbsp;询
+								</button>
+								<button type="button" class="btn gray" id="btnCheck">
+									<i class="glyphicon glyphicon-align-justify"></i>&nbsp;审&nbsp;核
+								</button>
+								<button type="button" class="btn gray" id="btnClear">
+									<i class="glyphicon glyphicon-floppy-remove"></i>&nbsp;清&nbsp;空
+								</button>
+							</div>
+						</div>
+					</form>
+					</div>
+					<div class="tab-pane" id="ruleCheckInfo">
+						<form class="form-horizontal" name="accOwnAddForm" id="accOwnAddForm" method="post">
+						
+						 </form>
+					</div>
+					<form class="form-horizontal" name="ruleSubmitForm" id="ruleSubmitForm" method="post" style="display:none;">
+						<div class="col-md-12">
+							<div class="col-md-5">
+							</div>
+							<div class="col-md-3">
+								<button type="button" class="btn gray" id="btnSubmit">
+									<i class="glyphicon glyphicon-saved"></i>&nbsp;提&nbsp;交
+								</button>
+								<button type="button" class="btn gray" id="btnReturn">
+									<i class="glyphicon glyphicon-share-alt"></i>&nbsp;返&nbsp;回
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+</body>

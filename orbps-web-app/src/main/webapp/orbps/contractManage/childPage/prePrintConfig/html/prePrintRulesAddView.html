@@ -1,0 +1,155 @@
+<!-- 规则类型信息 -->
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i>规则类型信息
+		</div>
+		<div class="tools"></div>
+	</div>
+	<div class="portlet-body">
+		<div class="form-group">
+			<label class="control-label col-md-2"> 机构号</label>
+			<div class="col-md-2">
+				<div class="input-icon right">
+					<i class="fa"></i> <input class="form-control input-small"
+						type="text" name="branchNo" id="branchNo" />
+				</div>
+			</div>
+			<label class="control-label col-md-2"> 规则类型 </label>
+			<div class="col-md-2">
+				<select id="ruleType" name="ruleType" placeholder="请输入规则类型..."
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="web/dict/CLA0071"
+					data-minimum-results-for-search="1"></select>
+			</div>
+			<label class="control-label col-md-2"> 规则变化原因 </label>
+			<div class="col-md-2">
+				<div class="input-icon right">
+					<i class="fa"></i> <input class="form-control input-small"
+						type="text" name="ruleChangeCause" id="ruleChangeCause" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 规则基本信息 -->
+					<div class="portlet box green">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i>规则基本信息
+							</div>
+							<div class="tools"></div>
+						</div>
+						<div class="portlet-body">
+							<div class="form-group">
+								<label class="control-label col-md-2"> 销售机构 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" name="salesBranchNo"
+										id="salesBranchNo" placeholder="" />
+								</div>
+								<label class="control-label col-md-2"> 销售渠道 </label>
+								<div class="col-md-2">
+									<select id="salesChannel" name="salesChannel" placeholder=""
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue' data-URL=""
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 场景 </label>
+								<div class="col-md-2">
+									<select id="scene" name="scene" placeholder=""
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue' data-URL=""
+										data-minimum-results-for-search="1"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 产品类型 </label>
+								<div class="col-md-2">
+									<select id="productType" name="productType" placeholder=""
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue' data-URL=""
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 业务类型 </label>
+								<div class="col-md-2">
+									<select id="serviceType" name="serviceType" placeholder=""
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue' data-URL=""
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 最短保险期间 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" name="shortestInsurancePeriod"
+										id="shortestInsurancePeriod" placeholder="" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 业务类别 </label>
+								<div class="col-md-2">
+									<select id="businessClass" name="businessClass" placeholder=""
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue' data-URL=""
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 合同类型 </label>
+								<div class="col-md-2">
+									<select id="insurType" name="insurType" placeholder=""
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue' data-URL=""
+										data-minimum-results-for-search="1"></select>
+								</div>
+								<label class="control-label col-md-2"> 脱落方式 </label>
+								<div class="col-md-2">
+									<select id="removal" name="removal" placeholder=""
+										class="lion-combo form-control select2 input-small"
+										data-valueField='keyId' data-textField='nvalue' data-URL=""
+										data-minimum-results-for-search="1"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2"> 生效日指定范围: </label>
+								<label class="control-label col-md-2"> 最高天数 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" name="maximumNo"
+										id="maximumNo" placeholder="" />
+								</div>
+								<label class="control-label col-md-2"> 最低天数 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" name="minimumNo"
+										id="minimumNo" placeholder="" />
+								</div>
+							</div>
+<div class="form-group">
+								<label class="control-label col-md-2"> 默认生效日 </label>
+								<div class="col-md-2">
+									<input class="form-control input-small" type="text" name="defaultEffDate"
+										id="defaultEffDate" placeholder="" />
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2" for="whetherToRecycle"> 作废合同是否回收 </label>
+								<div class="col-md-2">
+									<label class="control-label " for="yesWhetherToRecycle"> 是 </label> <input
+										type="radio" name="yesWhetherToRecycle" id="yesWhetherToRecycle">
+								</div>
+								<div class="col-md-2">
+									<label class="control-label " for="noWhetherToRecycle"> 否 </label> <input
+										type="radio" name="noWhetherToRecycle" id="noWhetherToRecycle">
+								</div>
+
+								<label class="control-label col-md-2" for="whetherCustomersCh"> 投保是是否由客户选择
+								</label>
+								<div class="col-md-2">
+									<label class="control-label " for="yesWhetherCustomersCh"> 是 </label> <input
+										type="radio" name="yesWhetherCustomersCh" id="yesWhetherCustomersCh">
+								</div>
+								<div class="col-md-2">
+									<label class="control-label " for="noWhetherCustomersCh"> 否 </label> <input
+										type="radio" name="noWhetherCustomersCh" id="noWhetherCustomersCh">
+								</div>
+							</div>
+
+						</div>
+					</div>

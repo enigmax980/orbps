@@ -1,0 +1,41 @@
+<script src="/orbps/orbps/public/modal/js/insurRespModal.js"
+	type="text/javascript"></script>
+<div class="modal-dialog" style="width:80%">
+	<div class="modal-content"  id="productModal">
+		<div class="modal-header">
+			<button type="button" class="close"  data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h4 class="modal-title" id="coverageInfo">
+				<span>险种责任信息</span>
+			</h4>
+		</div>
+		<div class="modal-body" style="border: 1px solid green">
+			<form class="form-horizontal" name="respForm"
+					id="respForm" method="post">
+				 <div class="row">
+					<div class="col-md-12">
+						<div class="table-scrollable">
+							<table id="coverageInfo_list" class="lion-editDatagrids table dataTable table-bordered table-striped" data-paginate="true" data-loadurl="" data-pagesize="3" data-edit="true" data-callbackurl="/orbps/orbps/contractEntry/grpInsurAppl/json/success.json"  data-issort="false"  data-pagecount="3,5,10,15,20,30,50" data-loading="false">
+								<thead>
+									<th width="1px" data-type='{"type":"checkbox","name":"applId"}' data-checkboxs="true" data-field="applId"></th>
+									<th width="70px" data-type='{"type":"input","name":"productCode","id":"productCode"}'  data-field="productCode" >责任代码</th>
+									<th width="50px" data-type='{"type":"input","name":"productName","id":"productName"}' data-field="productName">责任名称</th>
+									<th width="50px" data-type='{"type":"input","name":"productNum","id":"productNum"}' data-field="productNum">保额</th>
+									<th width="50px" data-type='{"type":"input","name":"productPremium","id":"productPremium"}' data-field="productPremium">保费</th>
+								    <th width="50px" data-type='{"type":"input","name":"subStdPremium","id":"subStdPremium"}' data-field="subStdPremium">标准保费</th>
+								</thead>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer"  style="border-top: 1px solid green">
+					<button type="button"  class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="btnInsure">
+						添加责任</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- /.modal-content -->
+</div>

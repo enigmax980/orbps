@@ -1,0 +1,141 @@
+<script src="/orbps/orbps/otherFunction/manualApproval/parentPage/js/approvalModal.js"
+	type="text/javascript"></script>
+<div class="modal-dialog" style="width:100%;"  data-backdrop="false" data-keyboard="false">
+	<div class="modal-content" align="center">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h4 class="modal-title" id="approvalInfo">
+				<span>生效日审批</span>
+			</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-md-12 form-group">
+					<label class="control-label col-md-2"> 投保单号 </label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input
+								class="form-control input-small input-keyup" type="text"
+								subsection="3,4,4" size="12" name="applNo"
+								id="applNo"/>
+						</div>
+					</div>
+					<label class="control-label col-md-2"> 契约形式 </label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input
+								class="form-control input-small input-keyup" type="text"
+								subsection="3,4,4" size="12" name="contractType"
+								id="contractType"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 form-group">
+					<label class="control-label col-md-2"> 投保日期 </label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input
+								class="form-control input-small input-keyup" type="text"
+								subsection="3,4,4" size="12" name="applDate"
+								id="applDate"/>
+						</div>
+					</div>
+					<label class="control-label col-md-2"> 生效日期 </label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input
+								class="form-control input-small input-keyup" type="text"
+								subsection="3,4,4" size="12" name="effectDate"
+								id="effectDate"/>
+						</div>
+					</div>
+					<label class="control-label col-md-2"> 保单总保额 </label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input
+								class="form-control input-small input-keyup" type="text"
+								subsection="3,4,4" size="12" name="cntrSumAmount"
+								id="cntrSumAmount"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 form-group">
+					<label class="control-label col-md-2"> 保单总保费 </label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input
+								class="form-control input-small input-keyup" type="text"
+								subsection="3,4,4" size="12" name="cntrSumPremium"
+								id="cntrSumPremium"/>
+						</div>
+					</div>
+					<label class="control-label col-md-2"> 最后交费日期 </label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input
+								class="form-control input-small input-keyup" type="text"
+								subsection="3,4,4" size="12" name="lastChargeDate"
+								id="lastChargeDate"/>
+						</div>
+					</div>
+					<label class="control-label col-md-2"> 总交费金额 </label>
+					<div class="col-md-2">
+						<div class="input-icon right">
+							<i class="fa"></i> <input
+								class="form-control input-small input-keyup" type="text"
+								subsection="3,4,4" size="12" name="sumPayAmount"
+								id="sumPayAmount"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="table-scrollable">
+						<table
+							class="lion-datagrids table table-striped table-bordered table-hover"
+							id="apTaskInfoTab" data-singleselect="true"
+							data-loadUrl="/orbps/web/orbps/otherfunction/manualapproval/queryValid" data-checkbox="true"
+							data-pageSize="3" data-loading="false">
+							<thead>
+								<tr>
+									<th data-field="applId" style="width: 2px;">序号</th>
+									<th data-field="busiPrdName" style="width: 50px;">险种名称</th>
+									<th data-field="overDays" style="width: 50px;">超出天数</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="3" align="center">无记录</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-12 form-group">
+					<label class="control-label col-md-2"> 审批结果 </label>
+					<div class="col-md-2">
+						<select id="approvalDecision" name="approvalDecision"
+							placeholder="请选择销售渠道..."
+							class="lion-combo form-control select2 input-small"
+							data-valueField='key' data-textField='description'
+							data-URL="web/dict/BUSINESS_TYPE"
+							data-minimum-results-for-search="1">
+						</select>
+					</div>
+					<input type="button" id="btnApplInfo" name="btnApplInfo"
+						value="投保单信息" class="btn btn-sm yellow" />
+					<input type="button" id="btnQuery" name="btnQuery"
+						value="查询" class="btn btn-sm yellow" />
+					<input type="button" id="btnSubmit" name="btnSubmit"
+						value="提交" class="btn btn-sm yellow" />
+					<input type="button" id="btnClear" name="btnClear"
+						value="清空" class="btn btn-sm yellow" />
+				</div>		
+				<!-- 模态框 -->
+				<div class="modal fade" id="approvalModel" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

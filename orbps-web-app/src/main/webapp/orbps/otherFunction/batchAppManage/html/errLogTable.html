@@ -1,0 +1,41 @@
+<script src="/orbps/orbps/otherFunction/batchAppManage/js/errLogTable.js" type="text/javascript"></script>
+<!-- 模态框（Modal） -->
+<div class="modal-dialog" style="width: 1000px;">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h4 class="modal-title">
+				<span></span>
+			</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+			     <div class="col-md-12">
+                     <table
+                         class="lion-datagrids table table-striped table-bordered table-hover"
+                         id="taskErrLogTableId" data-singleselect="true"
+                         data-loadUrl="/orbps/web/batch/manage/logmsgtable" data-checkbox="true" data-sorttargets="[0,1,2,3,4,5,6]" data-pageSize="5"
+                         data-loading="true">
+                         <thead>
+                             <tr>
+                                 <th data-field='taskId'>任务id</th>
+                                 <th data-field='taskExecutionId'>任务执行id</th>
+                                 <th data-field='businessTypeDesc'>业务类型</th>
+                                 <th data-field='businessKey'>业务流水号</th>
+                                 <th data-field="errorCode">错误代码</th>
+                                 <th data-field="errorInfo" data-formatter="com.orbps.otherFunction.bacthAppManage.errLogTable.formatterFtn">错误描述</th>
+                                 <th data-field="errorDetail" data-formatter="com.orbps.otherFunction.bacthAppManage.errLogTable.formatterFtn">错误明细</th>
+                             </tr>
+                         </thead>
+                     </table>
+                 </div>
+			</div>
+		</div>
+		<!-- <div class="modal-footer" align="center" style="text-align: center;">
+			<button type="button" class="btn green" id="errLogPreviousPage">上一条</button>
+			<button type="button" class="btn green" id="errLogNextPage">下一条</button>
+		</div> -->
+	</div>
+	<!-- /.modal-content -->
+</div>

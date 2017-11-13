@@ -1,0 +1,90 @@
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i>规则类型信息
+		</div>
+		<div class="tools"></div>
+	</div>
+	<div class="portlet-body">
+		<div class="form-group">
+			<label class="control-label col-md-2">
+				管理机构号 </label>
+			<div class="col-md-2">
+				<div class="input-icon right">
+					<i class="fa"></i> <input class="form-control input-small"
+						type="text" name="agreeBranchNo" id="agreeBranchNo" />
+				</div>
+			</div>
+			<label class="control-label col-md-2"> 单证类型
+			</label>
+			<div class="col-md-2">
+				<select id="voucherType" name="voucherType"
+					placeholder="请选择参数列表..."
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="example/datagrid/jc-work/json/sendType.json"
+					data-minimum-results-for-search="1">
+				</select>
+			</div>
+			<label class="control-label col-md-2"> 场景 </label>
+			<div class="col-md-2">
+				<select id="scene" name="scene"
+					placeholder="请选择参数列表..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="example/datagrid/jc-work/json/sendType.json"
+					data-minimum-results-for-search="1">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"> 合同性质
+			</label>
+			<div class="col-md-2">
+				<select id="contractNature" name="contractNature"
+					placeholder="请选择参数列表..."
+					class="lion-combo form-control select2 input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="example/datagrid/jc-work/json/sendType.json"
+					data-minimum-results-for-search="1">
+				</select>
+			</div>
+			<label class="control-label col-md-2"> 送达方式
+			</label>
+			<div class="col-md-2">
+				<select id="cntrSendType" name="cntrSendType"
+					placeholder="请选择参数列表..."
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="example/datagrid/jc-work/json/sendType.json"
+					data-minimum-results-for-search="1">
+				</select>
+			</div>
+			<label class="control-label col-md-2"> 签收方式
+			</label>
+			<div class="col-md-2">
+				<select id="signWay" name="signWay"
+					placeholder="请选择签收方式..."
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="example/datagrid/jc-work/json/sendType.json"
+					data-minimum-results-for-search="1">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"> 核销方式
+			</label>
+			<div class="col-md-2">
+				<select id="verificationMode" name="verificationMode"
+					placeholder="请选择核销方式..."
+					class="lion-combo form-control select2  input-small"
+					data-valueField='keyId' data-textField='nvalue'
+					data-URL="example/datagrid/jc-work/json/sendType.json"
+					data-minimum-results-for-search="1">
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+

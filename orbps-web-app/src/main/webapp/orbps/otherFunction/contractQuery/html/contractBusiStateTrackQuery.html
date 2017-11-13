@@ -1,0 +1,211 @@
+<script
+    src="/orbps/orbps/public/js/publicExport.js"
+    type="text/javascript"></script>
+<script
+	src="/orbps/orbps/otherFunction/contractQuery/js/contractBusiStateTrackQuery.js"
+	type="text/javascript"></script>
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="profile-content">
+		<div class="portlet light">
+			<div class="portlet-body">
+				<div class="row">
+					<form class="form-horizontal" id="contractStateBackForm"
+						name="contractStateBackForm" method="post">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="portlet box default">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 新契约业务状态跟踪清单
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="form-group">
+									<label class="control-label col-md-2"> 受理机构 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control" type="text"
+												name="bizzBranchNo" id="bizzBranchNo" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 是否包含下级机构</label>
+                                    <div class="col-md-2">
+                                        <select id="isCotainJuniorBizzBranch" name="isCotainJuniorBizzBranch"
+                                                placeholder="是否包含下级机构..."
+                                                class="lion-combo form-control select2" data-valueField='key'
+                                                data-textField='description'
+                                                data-isconnect="true"
+                                                data-URL="/orbps/web/dict/YES_NO_FLAG"
+                                                data-minimum-results-for-search="1"></select>
+                                    </div>
+                                    <label class="control-label col-md-2"> 契约业务形式 </label>
+                                    <div class="col-md-2">
+                                        <select id="contractBusiForm" name="contractBusiForm"
+                                                placeholder="请选择契约业务形式..."
+                                                class="lion-combo form-control select2" data-valueField='key'
+                                                data-textField='description'
+                                                data-isconnect="true"
+                                                data-URL="/orbps/web/dict/CNTR_TYPE"
+                                                data-minimum-results-for-search="1"></select>
+                                    </div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 受理人员工号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control"
+												type="text" name="bizzNo" id="bizzNo" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 受理起期 </label>
+                                    <div class="col-md-2">
+                                        <div id="1" class="input-group date date-picker"
+                                            data-date-format="yyyy-mm-dd">
+                                            <input type="text" id='startDate' name="startDate"
+                                                placeholder="受理起期..." class="form-control"
+                                                onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                onafterpaste="this.value=this.value.replace(/\D/g,'')" /> <span
+                                                class="input-group-btn">
+                                                <button id='applDateBtn' class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <label class="control-label col-md-2"> 受理止期 </label>
+                                    <div class="col-md-2">
+                                        <div id="1" class="input-group date date-picker"
+                                            data-date-format="yyyy-mm-dd">
+                                            <input type="text" id='endDate' name="endDate"
+                                                placeholder="受理止期..." class="form-control"
+                                                onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                onafterpaste="this.value=this.value.replace(/\D/g,'')" /> <span
+                                                class="input-group-btn">
+                                                <button id='applDateBtn' class="btn default" type="button">
+                                                    <i class="fa fa-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+								</div>
+								<div class="form-group">
+								    <label class="control-label col-md-2"> 投保单号 </label>
+                                    <div class="col-md-2">
+                                        <div class="input-icon right">
+                                            <i class="fa"></i> <input class="form-control"
+                                                type="text" name="applNo" id="applNo" />
+                                        </div>
+                                    </div>
+                                    <label class="control-label col-md-2"> 销售机构 </label>
+                                    <div class="col-md-2">
+                                        <div class="input-icon right">
+                                            <i class="fa"></i> <input class="form-control" type="text"
+                                                name="salesBranchNo" id="salesBranchNo" />
+                                        </div>
+                                    </div>
+                                    <label class="control-label col-md-2"> 是否包含下级机构</label>
+                                    <div class="col-md-2">
+                                        <select id="isCotainJuniorSaleBranch" name="isCotainJuniorSaleBranch"
+                                                placeholder="是否包含下级机构..."
+                                                class="lion-combo form-control select2" data-valueField='key'
+                                                data-textField='description'
+                                                data-isconnect="true"
+                                                data-URL="/orbps/web/dict/YES_NO_FLAG"
+                                                data-minimum-results-for-search="1"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> 销售渠道 </label>
+                                    <div class="col-md-2">
+                                        <select id="salesChannel" name="salesChannel"
+                                            placeholder="选择销售渠道..."
+                                            class="lion-combo form-control select2 "
+                                            data-valueField='key' data-textField='description'
+                                            data-URL="/orbps/web/dict/PRD_SALES_CHANNEL"
+                                            data-isconnect="true"
+                                            data-minimum-results-for-search="1"></select>
+                                    </div>
+                                </div>
+								<div class="row">
+									<div class="col-md-12">
+										<table
+											class="lion-datagrids table table-striped table-bordered table-hover"
+											id="busiStateTab" data-singleselect="true"
+											data-loadUrl="/orbps/web/orbps/otherfunction/contractQuery/query"
+											data-checkbox="true" data-pageSize="3" data-loading="true">
+											<thead>
+												<tr>
+													<th data-field="bizzBranchNo" style="width: 100px;">受理机构</th>
+                                                    <th data-field="applNo"  style="width: 120px;">投保单号</th>
+                                                    <th data-field="applName"  style="width: 110px;">投保人/汇交人姓名</th>
+                                                    <th data-field="bizzNo"  style="width: 110px;">受理人员工号</th>
+                                                    <th data-field="bizzName"  style="width: 70px;">受理人员姓名</th>
+                                                    <th data-field="bizzDate"  style="width: 110px;">受理时间</th>
+                                                    <th data-field="taskPresentStates"  style="width: 100px;">任务完成状态</th>
+                                                    <th data-field="contractBusiForm"  style="width: 100px;">契约业务形式</th>
+                                                    <th data-field="polCode"  style="width: 100px;">首个主险种代码</th>
+                                                    <th data-field="payForm"  style="width: 70px;">缴费方式</th>
+                                                    <th data-field="totalPremium"  style="width: 70px;">总保费</th>
+                                                    <th data-field="salesBranchNo"  style="width: 70px;">销售机构</th>
+                                                    <th data-field="salesChannel"  style="width: 100px;">销售渠道</th>
+                                                    <th data-field="salesNo"  style="width: 100px;">销售人员工号</th>
+                                                    <th data-field="salesName"  style="width: 100px;">销售人员姓名</th>
+                                                    <th data-field="busiType"  style="width: 70px;">业务类型</th>
+                                                    <th data-field="detailBusiCondition"  style="width: 120px;">详细业务情况</th>
+												</tr>
+											</thead>
+											<tbody></tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row" style="display:none;">
+                                    <div class="col-md-12">
+                                        <table
+                                            id="busiStateTabExport">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="bizzBranchNo" style="width: 100px;">受理机构</th>
+                                                    <th data-field="applNo"  style="width: 120px;">投保单号</th>
+                                                    <th data-field="applName"  style="width: 110px;">投保人/汇交人姓名</th>
+                                                    <th data-field="bizzNo"  style="width: 110px;">受理人员工号</th>
+                                                    <th data-field="bizzName"  style="width: 70px;">受理人员姓名</th>
+                                                    <th data-field="bizzDate"  style="width: 110px;">受理时间</th>
+                                                    <th data-field="taskPresentStates"  style="width: 100px;">任务完成状态</th>
+                                                    <th data-field="contractBusiForm"  style="width: 100px;">契约业务形式</th>
+                                                    <th data-field="polCode"  style="width: 100px;">首个主险种代码</th>
+                                                    <th data-field="payForm"  style="width: 70px;">缴费方式</th>
+                                                    <th data-field="totalPremium"  style="width: 70px;">总保费</th>
+                                                    <th data-field="salesBranchNo"  style="width: 70px;">销售机构</th>
+                                                    <th data-field="salesChannel"  style="width: 100px;">销售渠道</th>
+                                                    <th data-field="salesNo"  style="width: 100px;">销售人员工号</th>
+                                                    <th data-field="salesName"  style="width: 100px;">销售人员姓名</th>
+                                                    <th data-field="busiType"  style="width: 70px;">业务类型</th>
+                                                    <th data-field="detailBusiCondition"  style="width: 120px;">详细业务情况</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+						<div class="form-group" align="center">
+							<button type="button" class="btn gray" id="btnQuery">
+								<i class="glyphicon glyphicon-search"></i>&nbsp;查&nbsp;询
+							</button>
+							<button type="button" class="btn gray" id="btnExport">
+								<i class="glyphicon glyphicon-import"></i>&nbsp;导出清单
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

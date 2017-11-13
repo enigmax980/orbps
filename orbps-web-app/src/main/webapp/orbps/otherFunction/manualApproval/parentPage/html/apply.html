@@ -1,0 +1,100 @@
+
+<body 	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+	<div class="profile-content">
+		<div class="portlet light">
+			<div class="portlet-body">
+					<form class="form-horizontal" name="applyForm" id="applyForm"
+						method="post">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+						</div>
+						<div class="portlet box green">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i> 报批
+								</div>
+								<div class="tools"></div>
+							</div>
+							<div class="portlet-body">
+								<div class="form-group">
+									<label class="control-label col-md-2"> 报批环节 </label>
+									<div class="col-md-2">
+										<select id="applyStage" name="applyStage"
+											placeholder="请输入职业编码..."
+											class="lion-combo form-control select2 input-small "
+											data-valueField='keyId' data-textField='nvalue'
+											data-URL="web/dict/CLA0033" data-minimum-results-for-search="1"></select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 机构号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="branchNo" id="branchNo" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 投保单号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="applNo" id="applNo" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 保单号 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="cntrNo" id="cntrNo" />
+										</div>
+									</div>
+								</div>
+									<div class="col-md-12 form-group">
+										<label for="applyAppReason">报批原因</label>
+										<textarea id="applyAppReason" class="form-control" rows="3"></textarea>
+									</div>
+								<div class="form-group">
+									<label class="control-label col-md-2"> 是否专人审批 </label>
+									<div class="col-md-2">
+										<select id="commissionAppFlag" name="commissionAppFlag"
+											placeholder="请输入职业编码..."
+											class="lion-combo form-control select2 input-small"
+											data-valueField='keyId' data-textField='nvalue'
+											data-URL="web/dict/CLA0033" data-minimum-results-for-search="1"></select>
+									</div>
+									<label class="control-label col-md-2"> 审批员机构 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="approvalBranch" id="approvalBranch" />
+										</div>
+									</div>
+									<label class="control-label col-md-2"> 审批员代码 </label>
+									<div class="col-md-2">
+										<div class="input-icon right">
+											<i class="fa"></i> <input class="form-control input-small"
+												type="text" name="approvalClerkNo" id="approvalClerkNo" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12" align="center">
+							<input type="button" id="btnQuery" name="btnQuery"
+								value="查询审批意见" class="btn btn-sm yellow" />
+							<input type="button" id="btnCommit" name="btnCommit"
+								value="提交" class="btn btn-sm yellow" />
+							<input type="button" id="btnClear" name="btnClear"
+								value="清空" class="btn btn-sm yellow" />
+						</div>
+					</form>
+				</div>
+			<!-- 模态框 -->
+			<div class="modal fade" id="btnModel" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false"></div>
+		</div>
+	</div>
+</body>

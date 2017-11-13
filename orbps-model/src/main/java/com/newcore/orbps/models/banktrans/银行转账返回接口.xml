@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Header>
+		<cl:HEADER xmlns:cl="http://www.e-chinalife.com/soa/">
+			<ORISYS>CBPS8</ORISYS>
+			<SECURITY>
+				<SIGNATURE></SIGNATURE>
+			</SECURITY>
+			<SVCCODE>SLBPS-0047</SVCCODE>
+			<SVCNAME>BuildBankTransService</SVCNAME>
+			<SVCVER>1.0</SVCVER>
+			<TRANNO>20160929151553000064829</TRANNO>
+			<TRANTIME>2016-09-29 15:15:53,000</TRANTIME>
+			<FROMSYS>SLBPS</FROMSYS>
+			<PROCESSING>
+				<actProcNum>1</actProcNum>
+				<failNum>0</failNum>
+				<reqProcNum>1</reqProcNum>
+				<successNum>1</successNum>
+			</PROCESSING>
+			<RETCODE>0000</RETCODE>
+			<RETINFO>调用成功</RETINFO>
+		</cl:HEADER>
+	</soapenv:Header>
+	<soapenv:Body>
+		<ns:buildResponse xmlns:ns="http://www.e-chinalife.com/soa/">
+			<ns:return>&lt;BODY>&lt;RESPONSE>&lt;SERIALNUM>1&lt;/SERIALNUM>&lt;RESULT>0&lt;/RESULT>&lt;/RESPONSE>&lt;/BODY>
+			</ns:return>
+		</ns:buildResponse>
+	</soapenv:Body>
+</soapenv:Envelope>
